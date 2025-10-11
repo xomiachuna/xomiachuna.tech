@@ -1,0 +1,10 @@
+baseURL: https://xomiachuna.tech/
+languageCode: en-us
+title: xomiachuna.tech
+theme: xomiachuna
+
+disableKinds:
+  - taxonomy
+  - term
+
+enableEmoji: true
