@@ -1,7 +1,7 @@
 .PHONY: build
 build:
-	hugo build --gc --minify --cleanDestinationDir
+	hugo build --gc --cleanDestinationDir
 
 .PHONY: watch
 watch:
-	hugo build --gc --minify --cleanDestinationDir --watch
+	hugo build --gc --cleanDestinationDir --watch
