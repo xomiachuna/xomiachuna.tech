@@ -123,14 +123,14 @@ and financial) that come out of this, and Claude is definitely ain&rsquo;t the o
 <p>To try this out in practice, I used a toy project I have made earlier for a simple
 read-it-later service. The specifics are unimportant apart from the general shape:</p>
 <ul>
-<li>monolithic Go API written using <code>net/http</code></li>
-<li>uses PostgreSQL as a database + sqlc for SQL-adjacent codegen</li>
+<li>monolithic Go API written using <a href="https://pkg.go.dev/net/http"><code>net/http</code></a></li>
+<li>uses PostgreSQL as a database + <a href="https://github.com/sqlc-dev/sqlc"><code>sqlc</code></a> for SQL-adjacent codegen</li>
 <li>built around the idea of volatility-based decomposition - an approach to architecture
 described by <em>Yuval Lowy</em> in <em>Righting Software</em>; can be though of as an extension of
 <code>handler -&gt; service -&gt; repository</code> approach with a few constraints on the call patterns and the scope of each tier</li>
-<li>a BDD test harness setup with <code>godog</code> and feature files written in Gherkin</li>
-<li>tests utilize <code>testcontainers</code> with docker compose for infra setup</li>
-<li>~5000 LOCs (including documentation and PlantUML diagrams).</li>
+<li>a BDD test harness setup with <a href="https://github.com/cucumber/godog"><code>godog</code></a> and feature files written in <a href="https://cucumber.io/docs/gherkin/reference/">Gherkin</a></li>
+<li>tests utilize <a href="https://testcontainers.com/guides/getting-started-with-testcontainers-for-go/"><code>testcontainers</code></a> with docker compose for infra setup</li>
+<li>~5000 LOCs (including documentation and <a href="https://plantuml.com/">PlantUML</a> diagrams).</li>
 </ul>
 <h3 id="goal-migrate-from-postgres-to-sqlite">Goal: Migrate from Postgres to SQLite</h3>
 <p>Since it is a toy project, this is a somewhat sensible and easy to comprehend task which

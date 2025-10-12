@@ -113,14 +113,14 @@ and financial) that come out of this, and Claude is definitely ain't the one who
 
 To try this out in practice, I used a toy project I have made earlier for a simple
 read-it-later service. The specifics are unimportant apart from the general shape:
-- monolithic Go API written using `net/http`
-- uses PostgreSQL as a database + sqlc for SQL-adjacent codegen
+- monolithic Go API written using [`net/http`](https://pkg.go.dev/net/http)
+- uses PostgreSQL as a database + [`sqlc`](https://github.com/sqlc-dev/sqlc) for SQL-adjacent codegen
 - built around the idea of volatility-based decomposition - an approach to architecture
 described by _Yuval Lowy_ in _Righting Software_; can be though of as an extension of
 `handler -> service -> repository` approach with a few constraints on the call patterns and the scope of each tier
-- a BDD test harness setup with `godog` and feature files written in Gherkin
-- tests utilize `testcontainers` with docker compose for infra setup
-- ~5000 LOCs (including documentation and PlantUML diagrams).
+- a BDD test harness setup with [`godog`](https://github.com/cucumber/godog) and feature files written in [Gherkin](https://cucumber.io/docs/gherkin/reference/)
+- tests utilize [`testcontainers`](https://testcontainers.com/guides/getting-started-with-testcontainers-for-go/) with docker compose for infra setup
+- ~5000 LOCs (including documentation and [PlantUML](https://plantuml.com/) diagrams).
 
 ### Goal: Migrate from Postgres to SQLite
 Since it is a toy project, this is a somewhat sensible and easy to comprehend task which
