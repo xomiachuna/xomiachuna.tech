@@ -94,7 +94,7 @@ code {
   max-width: 100%;
 }
 
-p > code, li > code {
+p code, li code {
  border: 1px solid grey;
   padding: 0 0.2rem;
   margin-bottom: 1rem;
@@ -108,7 +108,7 @@ pre {
   margin-bottom: 1rem;
 }
 
-pre > code {
+pre code {
     display: block;
     overflow-x: scroll;
 }
