@@ -2,24 +2,24 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Posts on xomiachuna.tech</title>
-    <link>http://localhost:1313/posts/</link>
+    <link>https://xomiachuna.tech/posts/</link>
     <description>Recent content in Posts on xomiachuna.tech</description>
     <generator>Hugo</generator>
     <language>en-us</language>
     <lastBuildDate>Sat, 11 Oct 2025 15:25:07 +0300</lastBuildDate>
-    <atom:link href="http://localhost:1313/posts/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="https://xomiachuna.tech/posts/index.xml" rel="self" type="application/rss+xml" />
     <item>
-      <title>Pair Programming with claude</title>
-      <link>http://localhost:1313/posts/claude-pair-programming/</link>
+      <title>Thoughts on pair programming with llms</title>
+      <link>https://xomiachuna.tech/posts/claude-pair-programming/</link>
       <pubDate>Sat, 11 Oct 2025 15:25:07 +0300</pubDate>
-      <guid>http://localhost:1313/posts/claude-pair-programming/</guid>
-      <description>&lt;p&gt;Although I did work quite a bit with LLMs (did my masters thesis on GPT-2 for Ukrainian in 2021-2022,&#xA;deployed and used various open models when working as ML/MLOps engineer) and saw first-hand&#xA;the progression from random gibberish generators to the current state of llms - I remain rather skeptical&#xA;of the idea that current iteration of ML models is something that will entirely replace a significant amount&#xA;of real work done by humans in text-adjacent fields.&lt;/p&gt;</description>
+      <guid>https://xomiachuna.tech/posts/claude-pair-programming/</guid>
+      <description>&lt;h2 id=&#34;disclamer-my-biases-with-regards-to-llms&#34;&gt;Disclamer: my biases with regards to llms&lt;/h2&gt;&#xA;&lt;p&gt;Although I did work quite a bit with llms (did my masters thesis on GPT-2 for Ukrainian in 2021-2022,&#xA;deployed and used various open models when working as ML/MLOps engineer) and saw first-hand&#xA;the progression from random gibberish generators to the current state of llms - I remain rather skeptical&#xA;of the idea that current iteration of language models is something that will entirely replace a significant amount&#xA;of real work done by humans in text-adjacent fields - and code is no exception.&lt;/p&gt;</description>
     </item>
     <item>
       <title>Hello, World! 👋</title>
-      <link>http://localhost:1313/posts/hello/</link>
+      <link>https://xomiachuna.tech/posts/hello/</link>
       <pubDate>Sat, 11 Oct 2025 10:12:48 +0300</pubDate>
-      <guid>http://localhost:1313/posts/hello/</guid>
+      <guid>https://xomiachuna.tech/posts/hello/</guid>
       <description>&lt;p&gt;I&amp;rsquo;m Andrii, I have experience with various parts of the software stack - Android development, backend, ML and DevOPS.&#xA;I strive for simplicity and nice dev experience.&lt;/p&gt;&#xA;&lt;p&gt;This blog is a place for me to write about some of the findings I have about the software development process and share&#xA;some of the ideas I encountered along the way.&lt;/p&gt;</description>
     </item>
   </channel>
