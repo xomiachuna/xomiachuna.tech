@@ -1,0 +1,355 @@
+<!DOCTYPE html>
+<html lang="en-us" dir="ltr">
+<head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script>
+  <meta charset="utf-8">
+<meta name="viewport" content="width=device-width">
+<title>Thoughts on pair programming with llms | xomiachuna.tech</title>
+
+    <link rel="stylesheet" href="/css/main.css">
+
+
+      <script src="/js/main.js"></script>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link
+    href="https://fonts.googleapis.com/css2?family=Atkinson+Hyperlegible+Mono:ital,wght@0,200..800;1,200..800&family=Atkinson+Hyperlegible+Next:ital,wght@0,200..800;1,200..800&display=swap"
+    rel="stylesheet">
+
+</head>
+<body>
+  <header>
+    <a href="/">
+    <h1>xomiachuna.tech</h1>
+</a>
+  </header>
+  <main>
+    
+    <hgroup>
+        <h1>Thoughts on pair programming with llms</h1>
+        
+        
+        <time datetime="2025-10-11T15:25:07&#43;03:00">October 11, 2025</time> | <em>Time to read: ~16m</em>
+    </hgroup>
+  <h2 id="disclamer-my-biases-with-regards-to-llms">Disclamer: my biases with regards to llms</h2>
+<p>Although I did work quite a bit with llms (did my masters thesis on GPT-2 for Ukrainian in 2021-2022,
+deployed and used various open models when working as ML/MLOps engineer) and saw first-hand
+the progression from random gibberish generators to the current state of llms - I remain rather skeptical
+of the idea that current iteration of language models is something that will entirely replace <del>a significant amount
+of real work done by humans in text-adjacent fields - and code is no exception.</del></p>
+<p>Especially I&rsquo;m weary of trusting anybody who claims that &ldquo;vibe coding&rdquo; is a serious
+approach to development that the industry should consider as normal.
+Some of it is due to me just being protective of the field I have the most experience
+in (writing code is the only serious job I ever had apart from giving out ad flyers to passerbys when I was 16),
+and I&rsquo;m aware of that bias. But the more pragmatic argument for me is the fact that it is not
+possible to &ldquo;forget about the code existing at all&rdquo;, unless one wants to return to magical thinking
+and worship the spirits in the machine as something that only listens to pleas and prayers.</p>
+<p>There are actors that want to capitalize on the fear of being left behind and
+push for rapid adoption of llms in order to sell their products.
+<em>&ldquo;Soon there will be no need to train new software developers!&rdquo;</em> they say. I have my reasons to
+disagree, which might be better explained in a separate article, but the gist of the argument -
+it is necessary for them to promote such worldview as they have so much vested interest in this being true
+that they no longer are able to backpedal on such claims (unless they want to lose the VC money).</p>
+<p>I do see quite a lot of value in using llms as an unstructured index of the textual data on the internet
+that can be queried using natural language - for some of the types of info (those that have a lot
+of literature associated with them, like classical music theory for example) it is often useful to be
+able to start your search with a very vague question (&ldquo;I want to learn about composing melody, what do I need?&rdquo;) and
+progressively narrow down the scope of your incquiry until you get to some concrete pieces of reference
+(e.g. <em>Gradus ad Parnassum</em> by Fux on counterpoint), after which you can continue your investigation
+using the <em>primary sources</em> and use the language model as a more coherent rubber ducky to help work <em>through</em>
+the material (not <em>instead</em> of the material!).</p>
+<p>It&rsquo;s also worth noting that ethics of llms remain at best grey: llm companies essentially commit
+intelectual property violations on a planetary scale and don&rsquo;t bat an eye - all under the excuse of potentially
+bringing forth <em><strong>The AGI™</strong></em> which will - supposedly - solve all of humanity&rsquo;s problems.</p>
+<h2 id="what-llm-powered-software-development-might-look-like">What llm-powered software development might look like</h2>
+<p>Having said all that - I&rsquo;m open to being proven wrong: perhaps even the current models in fact do make anyone a 10x
+developer and we&rsquo;re on the brink of a revolution ushered by the brave believers and pilgrims of this new way of doing things -
+we just need to believe, let go of preconceived notions about development status quo and turn into the vibes.
+Since I don&rsquo;t have any other real qualifications apart from writing code for the past 8 years - the only
+way for me to evaluate that claim is to use llms in the context of SWE.</p>
+<p>Quick search on the current best tools led me to try out <em>agentic</em> development with Claude code. <em>Agentic</em> means
+that the model has means to interact with its environment through tool calling, and is thus able to both
+read and write data to the disk through integrated set of APIs - file access, command execution and so on.
+I remember when first mentions of such approaches were limited to <a href="https://github.com/Significant-Gravitas/AutoGPT">autogpt</a> a couple of years ago,
+and based on my current understanging it is essentially that but with the improved tooling support on both model
+side and the coding environments themselves. Thus we can view the model as a sort of agent that is able to do its thing.</p>
+<p>I&rsquo;ve read quite a few stories on the failure modes of the vibe-coding approaches, and often the rough edges
+were: the lack of understanding of the code by the human doing the vibing (either through unfamiliarity with the language
+or specific tools used by the llm), the poor performance of the model itself (running out of context space, model
+being of poor quality) and the general lack of cohesiveness of the work being done from the point of view
+of external developer - conflicting architectural decisions, mess of spaghetti code, lack of direction - these lead to the
+potential rework by humans being either very expensive or even impractical. While such issues might not be important for
+the scenarios when vibecoded projects are meant to be disposable prototypes (in which case I have no real problems with that),
+the cost of letting it happen essentially prevents reasonable teams from adopting such style of development.</p>
+<p>The other extremum - using llms to write only very small pieces of code with limited context by giving the context manually
+trough a chat interface suffers from the very narrow applicability: it might be ok to do some trivial data manipulation or
+serve as an inspiration but is definitely not the way to get code that adheres to all of the requirements the usual human
+code would be subject to.</p>
+<p>Thus my search was for something in the middle: using an llm as a meaningful realistic multiplier of my efforts without
+elevated risks - i.e. the result should be something that I&rsquo;d be as comfortable working alogside with as something produced
+by a fellow <em>homo sapiens</em>.</p>
+<p>But how <em>do</em> you trust the code produced by humans? Well, this is done through a combination of <strong>tooling</strong> (tests, linters etc.)
+and <strong>processes</strong> (code review, documentation, design). Thus we should employ both with the llm agents.</p>
+<p>The question is then who (using the term loosely here) should be responsible for what? The human knows all of the external (with regards to the code)
+context: broader requirements (including those that are implicit and not written anywhere), possible timelines,
+prospects for future scope, team structure and skillset etc. Additionally the human might have some
+ownership of the project, making them responsible for the outcomes and decisions along the way (as IBM understood loong ago -
+you cannot make a machine responsible for decisions - there is no notion for accountability for it). Writing the code itself,
+on the other hand, is something that a machine can be entrusted given we constrain it sufficiently enough: we as an industry
+have been using codegen for many decades.</p>
+<p>Thus the separation of roles becomes: anything related to non-trivial decision making that affects external context
+can only done by a human - making the human accountable, and a machine can be entrusted with the minutia of writing
+LOCs as long as the code fits within the external constraints. Since, by our definition, the machine cannot know all of
+the external constraints - this role of enforcement is to be performed by a human. Essentially the duo becomes
+a human supervisor and an agent grunt worker. Notice that nowhere here do I mention the capabilities
+the llm migh have - I believe that this framework is independent of the capability set of the model and the things
+that might change with the better models are the speed of production of LOCs and the probability that the initial
+results are up to standard (signalling better understranding of the requirements imposed by the human); until an agent
+has a capability to be present on the team calls, read all of the internal discussions and be pretty much a full stand-in
+for a remote worker with nigh infinite context - this approach is the only sensible one I can think of.</p>
+<p>We can, however, formalize and document quite a bit of the requirements through human-written documentation:
+<a href="https://cognitect.com/blog/2011/11/15/documenting-architecture-decisions.html">ADRs</a>
+for architectural decisions, diagrams for a rough design outline, test cases (e.g. in the form of BDD scenarios)
+for expected behavior. It is very important to not let the llm author these in any significant way: architecture
+decisions are to be made by a human and should be written out by a human, design diagrams are a translation of the
+design in one&rsquo;s head based on the team and previous experience and should be created by a human,
+test scenarios are a proxy of the end user requirementsRand are the part of the context to which an llm will
+not have access. Sure, a few typo corrections won&rsquo;t hurt when it comes to docs, but the core should be authored
+by someone who can be held accountable: the decision to add a message queue is not about the addition of a rabbitmq
+helm chart and <code>go get github.com/rabbitmq/amqp091-go</code> - it is about agreeing to all of the costs (technical, organizational
+and financial) that come out of this, and Claude is definitely ain&rsquo;t the one who is going to deal with that.</p>
+<h2 id="my-experiment">My experiment</h2>
+<h3 id="setup">Setup</h3>
+<p>To try this out in practice, I used a toy project I have made earlier for a simple
+read-it-later service. The specifics are unimportant apart from the general shape:</p>
+<ul>
+<li>monolithic Go API written using <code>net/http</code></li>
+<li>uses PostgreSQL as a database + sqlc for SQL-adjacent codegen</li>
+<li>built around the idea of volatility-based decomposition - an approach to architecture
+described by <em>Yuval Lowy</em> in <em>Righting Software</em>; can be though of as an extension of
+<code>handler -&gt; service -&gt; repository</code> approach with a few constraints on the call patterns and the scope of each tier</li>
+<li>a BDD test harness setup with <code>godog</code> and feature files written in Gherkin</li>
+<li>tests utilize <code>testcontainers</code> with docker compose for infra setup</li>
+<li>~5000 LOCs (including documentation and PlantUML diagrams).</li>
+</ul>
+<h3 id="goal-migrate-from-postgres-to-sqlite">Goal: Migrate from Postgres to SQLite</h3>
+<p>Since it is a toy project, this is a somewhat sensible and easy to comprehend task which
+does not require any deep understanding of the specifics of the application and yet still is
+non-trivial (compared to, say, fixing a logic bug).</p>
+<p>Lets see the architecture of the app (wallabago is the name of app; it is portmanteu of <a href="https://github.com/wallabag/wallabag"><code>wallabag</code></a> and Go):
+<img src="https://github.com/xomiachuna/wallabago/raw/main/docs/diagrams/dist/architecture-components.svg" alt="architecture-diagram.svg"></p>
+<p>While this is quite a handful, the thing that we care about is the db-neutral <code>Storage</code>
+API (with no database specifics exposed apart from the <code>database/sql</code> transaction awareness).</p>
+<p>Each of the consumers of said API have a consumer-defined interface which they expect to have at runtime:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-go" data-lang="go"><span style="display:flex;"><span><span style="color:#75715e">// managers/identity.go</span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">package</span> <span style="color:#a6e22e">managers</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">type</span> <span style="color:#a6e22e">IdentityStorage</span> <span style="color:#66d9ef">interface</span> {
+</span></span><span style="display:flex;"><span>	<span style="color:#a6e22e">AddClient</span>(<span style="color:#a6e22e">ctx</span> <span style="color:#a6e22e">context</span>.<span style="color:#a6e22e">Context</span>, <span style="color:#a6e22e">tx</span> <span style="color:#f92672">*</span><span style="color:#a6e22e">sql</span>.<span style="color:#a6e22e">Tx</span>, <span style="color:#a6e22e">client</span> <span style="color:#a6e22e">core</span>.<span style="color:#a6e22e">Client</span>) <span style="color:#66d9ef">error</span>
+</span></span><span style="display:flex;"><span>	<span style="color:#a6e22e">GetClientByID</span>(<span style="color:#a6e22e">ctx</span> <span style="color:#a6e22e">context</span>.<span style="color:#a6e22e">Context</span>, <span style="color:#a6e22e">tx</span> <span style="color:#f92672">*</span><span style="color:#a6e22e">sql</span>.<span style="color:#a6e22e">Tx</span>, <span style="color:#a6e22e">id</span> <span style="color:#66d9ef">string</span>) (<span style="color:#f92672">*</span><span style="color:#a6e22e">core</span>.<span style="color:#a6e22e">Client</span>, <span style="color:#66d9ef">error</span>)
+</span></span><span style="display:flex;"><span>	<span style="color:#a6e22e">DeleteClientByID</span>(<span style="color:#a6e22e">ctx</span> <span style="color:#a6e22e">context</span>.<span style="color:#a6e22e">Context</span>, <span style="color:#a6e22e">tx</span> <span style="color:#f92672">*</span><span style="color:#a6e22e">sql</span>.<span style="color:#a6e22e">Tx</span>, <span style="color:#a6e22e">id</span> <span style="color:#66d9ef">string</span>) <span style="color:#66d9ef">error</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#75715e">// ...</span>
+</span></span><span style="display:flex;"><span>}
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">func</span> <span style="color:#a6e22e">NewIdentityManager</span>(
+</span></span><span style="display:flex;"><span>	<span style="color:#a6e22e">identityStorage</span> <span style="color:#a6e22e">IdentityStorage</span>,
+</span></span><span style="display:flex;"><span>    <span style="color:#75715e">// ...</span>
+</span></span><span style="display:flex;"><span>) <span style="color:#f92672">*</span><span style="color:#a6e22e">IdentityManager</span> {
+</span></span><span style="display:flex;"><span>	<span style="color:#66d9ef">return</span> <span style="color:#f92672">&amp;</span><span style="color:#a6e22e">IdentityManager</span>{
+</span></span><span style="display:flex;"><span>		<span style="color:#a6e22e">storage</span>:         <span style="color:#a6e22e">identityStorage</span>,
+</span></span><span style="display:flex;"><span>        <span style="color:#75715e">// ...</span>
+</span></span><span style="display:flex;"><span>	}
+</span></span><span style="display:flex;"><span>}
+</span></span><span style="display:flex;"><span><span style="color:#75715e">// ...</span>
+</span></span></code></pre></div><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-go" data-lang="go"><span style="display:flex;"><span><span style="color:#75715e">// engines/bootstrap.go</span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">package</span> <span style="color:#a6e22e">engines</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">type</span> <span style="color:#a6e22e">BootstrapStorage</span> <span style="color:#66d9ef">interface</span> {
+</span></span><span style="display:flex;"><span>    <span style="color:#75715e">// notice the overlap with the previous interface</span>
+</span></span><span style="display:flex;"><span>	<span style="color:#a6e22e">AddClient</span>(<span style="color:#a6e22e">ctx</span> <span style="color:#a6e22e">context</span>.<span style="color:#a6e22e">Context</span>, <span style="color:#a6e22e">tx</span> <span style="color:#f92672">*</span><span style="color:#a6e22e">sql</span>.<span style="color:#a6e22e">Tx</span>, <span style="color:#a6e22e">client</span> <span style="color:#a6e22e">core</span>.<span style="color:#a6e22e">Client</span>) <span style="color:#66d9ef">error</span> 
+</span></span><span style="display:flex;"><span>	<span style="color:#a6e22e">AddUserInfo</span>(<span style="color:#a6e22e">ctx</span> <span style="color:#a6e22e">context</span>.<span style="color:#a6e22e">Context</span>, <span style="color:#a6e22e">tx</span> <span style="color:#f92672">*</span><span style="color:#a6e22e">sql</span>.<span style="color:#a6e22e">Tx</span>, <span style="color:#a6e22e">user</span> <span style="color:#a6e22e">core</span>.<span style="color:#a6e22e">UserInfo</span>) <span style="color:#66d9ef">error</span>
+</span></span><span style="display:flex;"><span>	<span style="color:#a6e22e">AddUser</span>(<span style="color:#a6e22e">ctx</span> <span style="color:#a6e22e">context</span>.<span style="color:#a6e22e">Context</span>, <span style="color:#a6e22e">tx</span> <span style="color:#f92672">*</span><span style="color:#a6e22e">sql</span>.<span style="color:#a6e22e">Tx</span>, <span style="color:#a6e22e">user</span> <span style="color:#a6e22e">core</span>.<span style="color:#a6e22e">User</span>) <span style="color:#66d9ef">error</span>
+</span></span><span style="display:flex;"><span>	<span style="color:#a6e22e">GetBootstrapConditions</span>(<span style="color:#a6e22e">ctx</span> <span style="color:#a6e22e">context</span>.<span style="color:#a6e22e">Context</span>, <span style="color:#a6e22e">tx</span> <span style="color:#f92672">*</span><span style="color:#a6e22e">sql</span>.<span style="color:#a6e22e">Tx</span>) ([]<span style="color:#a6e22e">core</span>.<span style="color:#a6e22e">Condition</span>, <span style="color:#66d9ef">error</span>)
+</span></span><span style="display:flex;"><span>	<span style="color:#a6e22e">MarkBootstrapConditionSatisfied</span>(<span style="color:#a6e22e">ctx</span> <span style="color:#a6e22e">context</span>.<span style="color:#a6e22e">Context</span>, <span style="color:#a6e22e">tx</span> <span style="color:#f92672">*</span><span style="color:#a6e22e">sql</span>.<span style="color:#a6e22e">Tx</span>, <span style="color:#a6e22e">condition</span> <span style="color:#a6e22e">core</span>.<span style="color:#a6e22e">ConditionName</span>) <span style="color:#66d9ef">error</span>
+</span></span><span style="display:flex;"><span>}
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">func</span> <span style="color:#a6e22e">NewBoostrapEngine</span>(
+</span></span><span style="display:flex;"><span>	<span style="color:#a6e22e">storage</span> <span style="color:#a6e22e">BootstrapStorage</span>,
+</span></span><span style="display:flex;"><span>) <span style="color:#f92672">*</span><span style="color:#a6e22e">BootstrapEngine</span> {
+</span></span><span style="display:flex;"><span>	<span style="color:#66d9ef">return</span> <span style="color:#f92672">&amp;</span><span style="color:#a6e22e">BootstrapEngine</span>{
+</span></span><span style="display:flex;"><span>		<span style="color:#a6e22e">storage</span>: <span style="color:#a6e22e">storage</span>,
+</span></span><span style="display:flex;"><span>	}
+</span></span><span style="display:flex;"><span>}
+</span></span><span style="display:flex;"><span><span style="color:#75715e">// ...</span>
+</span></span></code></pre></div><p>Overall, nothing unusual for a Go codebase.</p>
+<p>The implementation of the <code>Storage</code>s is a single object <code>PostgreSQLStorage</code> which has all of the storage methods and uses
+a <code>sqlc</code>-generated type <code>database.Queries</code>, and has methods like this:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-go" data-lang="go"><span style="display:flex;"><span><span style="color:#75715e">// storage/postgres.go</span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">type</span> <span style="color:#a6e22e">PostgreSQLStorage</span> <span style="color:#66d9ef">struct</span> {
+</span></span><span style="display:flex;"><span>    <span style="color:#75715e">// ...</span>
+</span></span><span style="display:flex;"><span>	<span style="color:#a6e22e">queries</span> <span style="color:#f92672">*</span><span style="color:#a6e22e">database</span>.<span style="color:#a6e22e">Queries</span> <span style="color:#75715e">// &lt;- this type is generated by sqlc</span>
+</span></span><span style="display:flex;"><span>}
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">func</span> (<span style="color:#a6e22e">s</span> <span style="color:#f92672">*</span><span style="color:#a6e22e">PostgreSQLStorage</span>) <span style="color:#a6e22e">AddClient</span>(<span style="color:#a6e22e">ctx</span> <span style="color:#a6e22e">context</span>.<span style="color:#a6e22e">Context</span>, <span style="color:#a6e22e">tx</span> <span style="color:#f92672">*</span><span style="color:#a6e22e">sql</span>.<span style="color:#a6e22e">Tx</span>, <span style="color:#a6e22e">client</span> <span style="color:#a6e22e">core</span>.<span style="color:#a6e22e">Client</span>) <span style="color:#66d9ef">error</span> {
+</span></span><span style="display:flex;"><span>	<span style="color:#a6e22e">q</span> <span style="color:#f92672">:=</span> <span style="color:#a6e22e">s</span>.<span style="color:#a6e22e">queries</span>.<span style="color:#a6e22e">WithTx</span>(<span style="color:#a6e22e">tx</span>)
+</span></span><span style="display:flex;"><span>	<span style="color:#a6e22e">_</span>, <span style="color:#a6e22e">err</span> <span style="color:#f92672">:=</span> <span style="color:#a6e22e">q</span>.<span style="color:#a6e22e">AddClient</span>(<span style="color:#a6e22e">ctx</span>, <span style="color:#a6e22e">database</span>.<span style="color:#a6e22e">AddClientParams</span>{
+</span></span><span style="display:flex;"><span>		<span style="color:#a6e22e">ClientID</span>:     <span style="color:#a6e22e">client</span>.<span style="color:#a6e22e">ID</span>,
+</span></span><span style="display:flex;"><span>		<span style="color:#a6e22e">ClientSecret</span>: <span style="color:#a6e22e">client</span>.<span style="color:#a6e22e">Secret</span>,
+</span></span><span style="display:flex;"><span>	})
+</span></span><span style="display:flex;"><span>	<span style="color:#66d9ef">if</span> <span style="color:#a6e22e">err</span> <span style="color:#f92672">!=</span> <span style="color:#66d9ef">nil</span> {
+</span></span><span style="display:flex;"><span>		<span style="color:#66d9ef">return</span> <span style="color:#a6e22e">errors</span>.<span style="color:#a6e22e">WithStack</span>(<span style="color:#a6e22e">err</span>)
+</span></span><span style="display:flex;"><span>	}
+</span></span><span style="display:flex;"><span>	<span style="color:#66d9ef">return</span> <span style="color:#66d9ef">nil</span>
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div><p><code>database.Queries</code> in turn is generated from the following SQL:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sql" data-lang="sql"><span style="display:flex;"><span><span style="color:#75715e">-- database/queries.sql
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e">-- ...
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e">-- name: AddClient :one
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span><span style="color:#66d9ef">INSERT</span> <span style="color:#66d9ef">INTO</span>
+</span></span><span style="display:flex;"><span>	<span style="color:#66d9ef">identity</span>.clients (client_id, client_secret)
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">VALUES</span>
+</span></span><span style="display:flex;"><span>	(<span style="color:#960050;background-color:#1e0010">$</span><span style="color:#ae81ff">1</span>, <span style="color:#960050;background-color:#1e0010">$</span><span style="color:#ae81ff">2</span>)
+</span></span><span style="display:flex;"><span>RETURNING
+</span></span><span style="display:flex;"><span>	client_id,
+</span></span><span style="display:flex;"><span>	client_secret
+</span></span><span style="display:flex;"><span>;
+</span></span><span style="display:flex;"><span><span style="color:#75715e">-- ...
+</span></span></span></code></pre></div><p>The DB schema is governed by <code>golang-migrate/migrate</code> and is defined through a set
+of SQL files like this:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sql" data-lang="sql"><span style="display:flex;"><span><span style="color:#75715e">-- database/migrations/00002_add-initial-identity-tables.up.sql
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">CREATE</span> <span style="color:#66d9ef">TABLE</span> <span style="color:#66d9ef">IF</span> <span style="color:#66d9ef">NOT</span> <span style="color:#66d9ef">EXISTS</span> <span style="color:#66d9ef">identity</span>.users (
+</span></span><span style="display:flex;"><span>	user_id TEXT <span style="color:#66d9ef">PRIMARY</span> <span style="color:#66d9ef">KEY</span>,
+</span></span><span style="display:flex;"><span>	username TEXT <span style="color:#66d9ef">NOT</span> <span style="color:#66d9ef">NULL</span> <span style="color:#66d9ef">UNIQUE</span>,
+</span></span><span style="display:flex;"><span>	email TEXT <span style="color:#66d9ef">NOT</span> <span style="color:#66d9ef">NULL</span> <span style="color:#66d9ef">UNIQUE</span>,
+</span></span><span style="display:flex;"><span>	password_hash bytea <span style="color:#66d9ef">NOT</span> <span style="color:#66d9ef">NULL</span>
+</span></span><span style="display:flex;"><span>)
+</span></span><span style="display:flex;"><span>;
+</span></span><span style="display:flex;"><span><span style="color:#75715e">-- ...
+</span></span></span></code></pre></div><p>Migrations are applied through a separate container in <code>docker-compose.yaml</code> like so:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-yaml" data-lang="yaml"><span style="display:flex;"><span><span style="color:#f92672">services</span>:
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">migrations</span>:
+</span></span><span style="display:flex;"><span>    <span style="color:#75715e"># migrations</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">image</span>: <span style="color:#ae81ff">migrate/migrate:v4.18.3</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">depends_on</span>:
+</span></span><span style="display:flex;"><span>      <span style="color:#f92672">postgres</span>:
+</span></span><span style="display:flex;"><span>        <span style="color:#f92672">condition</span>: <span style="color:#ae81ff">service_healthy</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">volumes</span>:
+</span></span><span style="display:flex;"><span>      - <span style="color:#ae81ff">../../internal/database/migrations/:/migrations</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">environment</span>:
+</span></span><span style="display:flex;"><span>      <span style="color:#f92672">&lt;&lt;</span>:
+</span></span><span style="display:flex;"><span>        - <span style="color:#75715e">*db-env</span> <span style="color:#75715e"># contains the DB env variable</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">entrypoint</span>: [<span style="color:#e6db74">&#34;/bin/sh&#34;</span>, <span style="color:#e6db74">&#34;-c&#34;</span>, <span style="color:#e6db74">&#34;migrate -path=/migrations/ -database $$DB up&#34;</span>]
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">wallabago</span>:
+</span></span><span style="display:flex;"><span>    <span style="color:#75715e"># app</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">depends_on</span>:
+</span></span><span style="display:flex;"><span>      <span style="color:#f92672">postgres</span>:
+</span></span><span style="display:flex;"><span>        <span style="color:#f92672">condition</span>: <span style="color:#ae81ff">service_healthy</span>
+</span></span><span style="display:flex;"><span>      <span style="color:#f92672">migrations</span>:
+</span></span><span style="display:flex;"><span>        <span style="color:#f92672">condition</span>: <span style="color:#ae81ff">service_completed_successfully</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#75715e"># ...</span>
+</span></span></code></pre></div><p>This compose file is also used by <code>testcontainers</code> when running BDD test suite.</p>
+<p>Thus the task roughly boils down to:</p>
+<ul>
+<li>rewriting SQL queries to use SQLite syntax (including migrations)</li>
+<li>making so that the app runs the migrations at startup</li>
+<li>generating a new implementation of <code>database.Queries</code> with <code>sqlc</code></li>
+<li>making sure that the rough edges of SQLite-PostgreSQL compatibility are sorted out (e.g. we use PG schemas
+but SQLite has no such concept)</li>
+<li>in the end the existing BDD harness should still work after we use this new implementation (this is basically
+an acceptance criterion).</li>
+<li>cleanup mentions of postgres (compose, makefile etc).</li>
+</ul>
+<p>This plan, however, is not the plan that I explicitly gave to the llm and is rather a post-factum summary of the steps
+performed and matches well with the trajectory I would take when doing it on my own.</p>
+<h3 id="step-0-adrtests-for-context">Step 0: ADR/tests for context</h3>
+<p>I started with an ADR that introduces the switch from PostgreSQL to SQLite which basically said:</p>
+<ul>
+<li>postgres is an overkill for our use case</li>
+<li>using sqlite is simpler in terms of operation</li>
+<li>we have sqlc to shield us from a lot of rewrites</li>
+<li>we can simplify the infra by removing the need for docker-compose and test containers</li>
+<li>we dont have any live installations so no need to care about the data</li>
+<li>we need to make sure to use sane setting for SQLite (WAL, strict tables etc)</li>
+<li>we need to make sure the SQL differences between SQLite and Postgres are accounted for (schemas, datetime types etc)</li>
+</ul>
+<p>After I created the ADR, I started a fresh Claude Code session (Sonnet 4.5, Thinking On, each edit needs to be explictly
+accepted by me) and asked to read the ADR. It did so and provided the usual praise (god I hate sycophancy), which I disregarded entirely and focused on the possible
+critique - and it pointed out some ambiguity with wording around replacing schemas with a naming convention for tables, which I
+adressed.</p>
+<p>For tasks that require implementing new features I replace this with a BDD test suite which I write using
+Gherkin and godog - this serves as the core context for the feature to be implemented, along with automated feedback
+about the acceptance state. This task, however, does not involve writing new tests.</p>
+<p>Claude has also previously created a <code>CLAUDE.md</code> which it uses for its own memory-like purpose. I did not manually edit this
+file.</p>
+<h3 id="step-1-planning">Step 1: Planning</h3>
+<p>I asked it to plan out the switch: what needs to be done and in which order. Claude Code has a built-in
+way to keep track of TODOs. After some nudging and correction (Claude wanted to embed a sqlite binary at first,
+but after asking it why not just use a pure-go sqlite implementation instead and embedding only the sql files
+it caved in) the plan was to start with migration rewrite and then continue with sqlc adjacent code (the steps were
+more detailed, but the details are omitted here for brevity).</p>
+<p>Once I was satisfied with the plan, we proceeded with the execution.</p>
+<h3 id="step-2-execution">Step 2: Execution</h3>
+<p>This is basically the meat and potatoes of this duo interaction, and once you have the necessary setup ready
+(context, tests, linters and so on) it is
+pretty uniform in shape across different tasks. The execution was basically a loop:</p>
+<ol>
+<li>Claude offers to edit a file as part of the current todo item (say a migration or <code>.go</code> file).</li>
+<li>I review each edit line by line, as I would do if doing a code review.</li>
+<li>If I have questions about the code - I ask them before the code gets accepted.</li>
+<li>If the result of such questioning is me learning a bit of nontrivial info (like specifics of why one has to use <code>&quot;PRAGMA cache_size = -64000&quot;</code> in order to set the
+cache size to 64MB) - I make sure to include an explainer comment.</li>
+<li>If the change is downright wrong or needs modifying - I explain why we should not do that and offer an alternative (in this particular
+it was barely an issue, but examples include violating architecture constraints).</li>
+<li>Once I&rsquo;m satisfied with the change - I accept it.</li>
+</ol>
+<p>This was occasionally interspersed with prompts for allowing tool use, like running codegen or tests, which I had to explicitly
+allow every time - this allows me to potentially intervene in case Claude starts to enter a death spiral of bad edits and failing tests.
+Keeping tight control of the changes grants both understanding of the changes and confidence on the general correctness and
+appropriateness.</p>
+<p>I repeated this loop until we went through the plan and made sure that the test pass and there is no longer a mention of
+postgres in the code (apart from historical ADR which introduced it).</p>
+<p>The whole ordeal took less than two hours (with a few stretch breaks), which, I concur, is probably a good deal faster than I&rsquo;d be able to pull off alone, but definitely
+is not 10x speedup. The resulting code looks pretty much indistinguishable from the one I would write (not least due to the fact that
+all Go code is pretty much uniform in style, shape and form), apart from occasiona more-verbose-than-usual comments.
+Tests pass, agressive linters make sure the code is idiomatic, manual review prevented obvious degradations in quality,
+the change is documented - pretty much everything I&rsquo;d want from a fellow coworker&rsquo;s code.</p>
+<h3 id="step-3-proper-attribution">Step 3: Proper attribution</h3>
+<p>In order to be transparent, I decided to explicitly mark every commit coauthored with Claude as such by including it
+in the contributors - this is mainly for attribution in the future in order to know the provenance of the code. And in general for now, at least for personal or toy projects, I practice having the name of the
+branch and commits also explicitly include ai (I know thats no the right term, it just looks ok):</p>
+<pre tabindex="0"><code>ai/feat: Replace PostgreSQL with SQLite
+Co-Authored-By: Claude &lt;noreply@anthropic.com&gt;
+</code></pre><p>on branch <code>ai/feat/replace-postgre-with-sqlite</code>.</p>
+<p>This way if SHTF in the future I&rsquo;ll be able to more easily know if the cause was entirely my
+skill issue (when authored solely by me) or lack of care with regards to the use of LLMs.</p>
+<h2 id="conclusion">Conclusion</h2>
+<p>&ldquo;Agentic&rdquo; coding tools like Claude Code can fit well within the framework of pair programming,
+especially when combined with TDD and other good practices. Given a consistent procedure for validation
+(of every line written, not just green tests) and an opinionated strong preference for certain architectural constraints for the kinds of code the model generates,
+I conclude that it is very much possible to use the currently available coding models in a way that is both
+productive in terms of speed and does not increase the amount of tech debt incurred (not more than
+regular development does, anyhow).</p>
+<p>Although the tests I did were on a rather small scale project in Go, I am confident that similar approach may be taken
+with other strongly typed languages when doing backend (types help a lot with constraining the output and with the validation of the resulting code) on
+at least a medium scale codebase (few 10s of thousands LoC), although YMMV given potential constraints with context sizes - best
+to keep the scope of work contained and not do something like &ldquo;rewrite this whole project in Rust&rdquo;.</p>
+<h2 id="ps">PS</h2>
+<p>While writing this I remembered that <a href="https://github.com/fe3dback/go-arch-lint">there is a linter for Go that allows to verify certain architectural constraints</a> - will
+give it a go sometime later.</p>
+
+
+  </main>
+  <footer>
+    <a href="http://localhost:1313/">xomiachuna.tech</a> by <a href="https://xomiachuna.tech">Andrii Khomiak</a> is marked <a
+    href="https://creativecommons.org/publicdomain/zero/1.0/">CC0 1.0</a><img
+    src="https://mirrors.creativecommons.org/presskit/icons/cc.svg" alt=""
+    style="max-width: 1em;max-height:1em;margin-left: .2em; display: inline;"><img
+    src="https://mirrors.creativecommons.org/presskit/icons/zero.svg" alt=""
+    style="max-width: 1em;max-height:1em;margin-left: .2em; display: inline;">
+  </footer>
+</body>
+</html>
