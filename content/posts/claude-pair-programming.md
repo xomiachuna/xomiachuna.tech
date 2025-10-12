@@ -353,10 +353,18 @@ I conclude that it is very much possible to use the currently available coding m
 productive in terms of speed and does not increase the amount of tech debt incurred (not more than
 regular development does, anyhow).
 
-Although the tests I did were on a rather small scale project in Go, I am confident that similar approach may be taken
-with other strongly typed languages when doing backend (types help a lot with constraining the output and with the validation of the resulting code) on
-at least a medium scale codebase (few 10s of thousands LoC), although YMMV given potential constraints with context sizes - best
-to keep the scope of work contained and not do something like "rewrite this whole project in Rust".
+The tests I did were on a rather small scale project in Go, so YMMV. But I think that this approach might be a somewhat
+ok base on which one might try to incorporate llms into their workflows on a larger scale. There might be some
+non-trivial complications as the amount of context grows and maybe there are fundamental issues that only
+arise when using llms at scale (with regards to coding outcomes), like degradation of performance. 
+
+One issue for sure exists: complacency. It is very easy to convince yourself even on such toy problems
+that the thing you interact with indeed posesses home humanlike attributes and can be trusted as such.
+But one must always stay vigilant whenever something starts to look like a silver bullet.
+
+My experience so far has been surprisingly okay - it is definitely not the magical lamp, but neither it is a
+complete utter piece of trash with no redeamable qualities. Just a tool that might work pretty well
+in certain cases, and, although I was sceptical at first, I am willing to admit at least that much.
 
 ## PS
 While writing this I remembered that [there is a linter for Go that allows to verify certain architectural constraints](https://github.com/fe3dback/go-arch-lint) - will

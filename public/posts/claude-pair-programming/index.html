@@ -29,7 +29,7 @@
         <h1>Thoughts on pair programming with llms</h1>
         
         
-        <time datetime="2025-10-11T15:25:07&#43;03:00">October 11, 2025</time> | <em>Time to read: ~16m</em>
+        <time datetime="2025-10-11T15:25:07&#43;03:00">October 11, 2025</time> | <em>Time to read: ~17m</em>
     </hgroup>
   <h2 id="disclamer-my-biases-with-regards-to-llms">Disclamer: my biases with regards to llms</h2>
 <p>Although I did work quite a bit with llms (did my masters thesis on GPT-2 for Ukrainian in 2021-2022,
@@ -333,10 +333,16 @@ especially when combined with TDD and other good practices. Given a consistent p
 I conclude that it is very much possible to use the currently available coding models in a way that is both
 productive in terms of speed and does not increase the amount of tech debt incurred (not more than
 regular development does, anyhow).</p>
-<p>Although the tests I did were on a rather small scale project in Go, I am confident that similar approach may be taken
-with other strongly typed languages when doing backend (types help a lot with constraining the output and with the validation of the resulting code) on
-at least a medium scale codebase (few 10s of thousands LoC), although YMMV given potential constraints with context sizes - best
-to keep the scope of work contained and not do something like &ldquo;rewrite this whole project in Rust&rdquo;.</p>
+<p>The tests I did were on a rather small scale project in Go, so YMMV. But I think that this approach might be a somewhat
+ok base on which one might try to incorporate llms into their workflows on a larger scale. There might be some
+non-trivial complications as the amount of context grows and maybe there are fundamental issues that only
+arise when using llms at scale (with regards to coding outcomes), like degradation of performance.</p>
+<p>One issue for sure exists: complacency. It is very easy to convince yourself even on such toy problems
+that the thing you interact with indeed posesses home humanlike attributes and can be trusted as such.
+But one must always stay vigilant whenever something starts to look like a silver bullet.</p>
+<p>My experience so far has been surprisingly okay - it is definitely not the magical lamp, but neither it is a
+complete utter piece of trash with no redeamable qualities. Just a tool that might work pretty well
+in certain cases, and, although I was sceptical at first, I am willing to admit at least that much.</p>
 <h2 id="ps">PS</h2>
 <p>While writing this I remembered that <a href="https://github.com/fe3dback/go-arch-lint">there is a linter for Go that allows to verify certain architectural constraints</a> - will
 give it a go sometime later.</p>
