@@ -9,8 +9,8 @@ title: Thoughts on pair programming with llms
 Although I did work quite a bit with llms (did my masters thesis on GPT-2 for Ukrainian in 2021-2022, 
 deployed and used various open models when working as ML/MLOps engineer) and saw first-hand
 the progression from random gibberish generators to the current state of llms - I remain rather skeptical
-of the idea that current iteration of language models is something that will entirely replace ~~a significant amount
-of real work done by humans in text-adjacent fields - and code is no exception.~~
+of the idea that current iteration of language models is something that will entirely replace a significant amount
+of real work done by humans in text-adjacent fields - and code is no exception.
 
 Especially I'm weary of trusting anybody who claims that "vibe coding" is a serious
 approach to development that the industry should consider as normal.
