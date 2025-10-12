@@ -1,6 +1,6 @@
 ---
 date: '2025-10-11T15:25:07+03:00'
-draft: true
+draft: false
 title: Thoughts on pair programming with llms
 ---
 
