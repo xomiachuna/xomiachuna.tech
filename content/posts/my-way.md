@@ -3,25 +3,67 @@ date: '2026-02-20T20:14:50+01:00'
 draft: true
 title: 'My Way (So Far)'
 ---
+# TL;DR
+TODO: a short paragraph to summarize the contents of this post
 
 # Beginning
-- start with school
-    - elaborate on my relationship with math and similar sciences
-    - expand on the ease of exploration and iteration
-    - at some point in early highschool mused about becoming a mathematician
-- pivot into practical realities of earning a liveable wage
-    - low-income family, parents did not finish their degrees and ended up regretting it severely
-    - wanted to still be involved in my career and doing manual labor was an option my parents advised against
-    - in Ukraine the salary of an SWE combined with PPP makes it a very sustainable financial option
-    - I started looking into programming in highschool and on my final year ended up in the country-level of programming olympiad
-- bring up the point of engineering as a core direction for my self-actualization
-    - while studying at school i didn't have a clear picture of how olympiad style programming could earn money
-    - but still it was worth a shot and in case that didn't pan out I thought I could go into regular engineering
-    - at this point I started seeing math as more of a tool than something to pursue directly, and utility of my work was the goal
+Since childhood I was captivated with sciences. The interest was
+fueled by a trove on children's encyclopedia my parents got for me, and for a few
+years the primary kind of present I got was books full of illustrations about space,
+animals, technology, human body and adjacent topics. In school I often was at the
+top of my class at math, and later at other sciences. Physics specifically showed to me 
+that you can apply mathematical thinking in useful ways to solve practical problems.
+
+I heard about applied math and for some time even mused about pursuing it as a career.
+But even im my childhood naivetee I understood that it is not a realistic path to a
+stable job, not in Ukraine at least. My parents did not finish their higher education,
+and in fact I was going to be the first in my lineage to get a diploma, so I had to
+decide what to focus on during my highschool years. Mom and dad specifically asked
+me and my siblings to get a job unlike theirs, that is without difficult manual labor.
+
+Early 2010s made software as a career pretty commonly known option even in my part of 
+town - here and there you could hear about someones cousin working with computers
+for some international company and getting a good paycheck. I did not know about
+the economics of global IT market and the effects PPP had on the livelihoods
+of SWEs in Ukraine, making it dramatically more secure than many other options. But I
+knew that I liked playing games on the computer, and getting paid to do something
+with a keyboard and mouse seemed like a great deal to my highschool self. Even better
+still I heard that it is in some ways related to math, so I imagined my relationship
+with logic and structured thinking was not going to be over any time soon.
+
+I looked into basics of JS somewhere around 9th grade, but it was not something that
+clicked for me at first. Sure you could print text to a console, so what? So I shelved
+the idea for about a year and instead focused on math/physics. I got to regional
+level of physics olympiad and to a national level in math, but could not progress
+further than that - all otherwise good achievements, but I felt like I was running
+into some wall I could not describe. Not only was it about an actual problem solving
+skill issue but I also felt that my time for deciding what to pursue was getting short.
+I wanted actual usefulness, not some abstract in a vacuum type thing. The math started
+getting hairy, I couldn't grok it as easily as before, and solving equations did not show
+any clear path ahead for me.
+
+Once I got introduced to olympiad-style programming the things finally click for me.
+You could solve problems not that different to the ones you did with pan and paper,
+but also so much more. Right about the time I was doing prep work to a programming
+olympiad at school using pascal and python and got to play with graphs - I was hooked.
+The applicability seemed much more powerful. The beauty of seeing a data structure
+and an algorithm for it was the moment of no return. 
+
+In my final highschool year I once again got into national-level round of an olympiad, 
+but this it was for programming. Despite not getting anything remarkable there, I was
+certain about what I'm going to chose next. At that point I had no idea how traversing
+graphs or linked lists could earn you money, but figured that I'll get to it once I
+start my major.
+
+During my first year doing a CS major I got familiar with the professional scene in my
+hometown. Despite the city being not that big, the tech comunity was pretty active, with
+plenty of events and oportunities to find a way to enter. I did a few bootcamps before
+finally landing my first real job just a few weeks after I turned 18 as an Android dev.
+At that point I knew that I no longer have to think of some backup strategy in case I will not
+be able to get into software (which probably would be something like engineering). I was
+happy as finaly I could put my analytical mind to some good use and start earning a living.
 
 # First steps: Android
-- started working asap, looking into any possible way to get into sowftware
-- landed android dev position and started learning on the job
 - understood that I like working with software in general
 - saw that it is not merely about the code but also about teamwork
 - started wondering if switching careers migth be an option as there were certain things about mobile that I didn't like  
