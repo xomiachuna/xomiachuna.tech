@@ -266,77 +266,254 @@ by a new reseach paper that spent a few millions on training compute. I wanted a
 of sovereignity in terms of technology, get back into engineering and away from doing research.
 
 # Getting wider in scope: Infra
-- Started interacting with infra during ML days and it piqued my interest
-- Decided to spend a few months just diving deeper
-- Ended up getting into MLOps role (ML + infra).
+
+Since not many regular engineers knew how to work with ML artifacts, it was pretty
+common for you to handle the containerization and deployment of your work. In the
+beginning it was just something you had to do in order to finish the handoff, and
+it felt mostly like a chore. Since in my direct circle of ML coworkers I had the
+most classical SWE background it was natural for me to take on a mantle of someone
+who also knows how to handle the non-research part of the job. I started by giving
+a few short demos on how to use Docker to have a reproducible research env, then
+took a dive into orchestration with compose (nothing complicated, but sometimes
+you had to work with a db, and I'd like to avoid depending on my system package
+manager for that). 
+
+One project in particular required me to set up an ETL pipeline, for which I used
+Apache Airflow on top of kubernetes. In that particular case that was most certainly
+a case of cargo-culting, but the thing ended up working ok. I was impressed with
+the seeming flexibility one got with k8s and it simmered in the back of my mind
+for some time.
+
+Righ at the end of my ML role I wanted to take a break: some of it was due to
+just burnout of trying to keep up with the advances in the field, some - due
+to wanting to explore beyond just computers (I took up photography, both digital
+and film). Another major reason - I started to feel like many
+aspects of working in ML just didn't align well with my engineering-focused
+mindset.
+
+The break was for 6mo, and at some point I got pretty bored so decided to play
+a bit with tech, remembered my fascination with k8s and just went for a CKA
+prep course. The more I learned the more right it felt to use this _thing_ to
+tackle complexity of deployment. The concepts aligned neetly, the patterns of
+application structure seemed to map nicely onto the k8s ideas. It felt
+like the tech stack can be conceptualized as a set of building blocks that
+you only had to stick together in a right manner and it would work almost
+by magic. YAML became the most powerful language I knew at the time.
+
+While I didn't want to get into pure infra yet, having the ability to work with
+this almighty tool was something I needed. Right at the time there emerged another
+new field: MLOps - a mix of DevOps and ML, bridging a gap between ML and
+infra. There very few people on the marked that had that particular skillset,
+and I was pretty quick to land a job in ML infra startup, where I did exactly that:
+helped ML engineers utilize the modern infra stack without the need for them to
+learn much about the intricacies of deployment and focus on research instead.
 
 ## The Good
-- More engineering effort, concept heavy work
-- Shorter feedback loops
-- Understaning of modern infra landscape from operator standpoint
-- Powerful intuition regarding infra scaling and portability of systems
-- Witnessed the shift from more traditional ML and DL to LLMs, seeing fist hand the birth of a new paradigm through
-early llama + lora deployments
-- Got to work on heterogeneous environment (cloud/onprem hybrid) and some beefy setups like DGX
+
+The first MLOps job I got was engaging: there was an in-house MLOps platform which
+needed to be developed and supported, internal ML team relied on guys like me
+to help troubleshoot some issues and used us for consultations on tech selection.
+We curated a set of ML tools that we knew were a good fit into our platform since
+we provided example showcase applications as example recipes.
+
+It was a deep-in-the-weeds kind of work: during average workday you juggled multiple
+tools and concepts, provided tech support for researchers, participated in initial triage of
+platform issues, communicated product info to the stakeholders. Feedback loops
+were short - in a few minutes you could go from initial alert to acknowledment of
+the issue on your side to resolution.
+
+The platform itself worked on top of k8s (and was a more high-level wrapper around it
+with ML-specific optimizations in usability), so I got intimately familiar with managing
+k8s in the process, heavily expanding on my previous mostly theoretical knowledge.
+Seeing the breadth of possibilities our hybrid cloud/onprem architecture provided
+was genuinely cool, and witnessing a DGX as one of your nodes somewhat blew my mind.
+
+I also was around the first llama + lora wave: amazing how quickly can a field
+pivot from small neural networks for image processing towards serving the behemoths
+that are modern LLMs, as the shift seemingly happened overnight. It was cool to read
+about such models being served on A100s and then in a week or two get to do that
+yourself - with modern infra it was easy to scale. We also did some wacky stuff
+with commodity hardware (like running llms on rented out consumer compute platforms),
+broadening my perspective of what is possible.
+
+Second MLOps job I got was pretty similar as well, but with more focus on infra
+(included bootstrapping a cloud env with terraform for a greenfield project, then
+managing model serving and the application layer deployments as well), which showed
+me more depths of the infra story, along with the organizational effects it has
+(i.e. the importance of it being reliable as a bedrock on which the other teams
+build their stuff). It was cool to be one of the grownups in the team, to have
+a very meaningful say in what technologies the team will use with tangible
+effects on the engineering. 
+
+At that point I reached a level of competence
+at which my impostor syndrome started to subside: I proved to myself that I can
+work in compex environments, see the development process holistically,
+and that I'm able to learn to do many things given enough patience and effort - 
+I just need to apply myself.
 
 ## The Bad
-- You are at the mercy of the hardware way more than you might expect
-- The sheer complexity and amount of pieces you need to juggle is mind boggling
-- Downtime at this level is extremely impactful to many people
-- You still cannot avoid having to learn many vendor-specific systems
-- Does not solve any final-mile problems the users have
-- Might be subject to cargo culting and overcomplication
-- I ended up concluding that infra is a busy kind of work, but not the right kind of busy for me 
-(more about firefighting and support than solving real problems that people actually care about)
+
+Its at the second job mostly that I started to realize the depth of modern
+infra, and the more it dawned on me the more it felt insurmountable. Everywhere
+I looked there were fractal layers of complexity, for each line of yaml you
+were toying with great power, ramifications of which were not readily obvious. For all of
+the promises of kubernetes to hide the complexity, the abstraction it provides 
+is pretty leaky. You still have to learn a lot of vendor-specific knowledge,
+the differences between kubernetes on say Azure and onprem are subtle but important.
+Depending on kubernetes impacts everyone on the team: complicating the deployment
+and introspection for the application developers, requiring you to bring your own
+observability or use the one from the cloud provider (defeating the vendor lock-in
+arguments). The abstraction layers over cloud infra like terraform bring their
+own idiosyncracies, requiring you to learn a whole new language and a set of rules
+for safely working with it, making you trade the fear of complexity for a fear of
+the thing buckling under itself upon a tiny config change.
+
+Oh and infra is far from being solved: machines crash, nodes disconnect, breaking
+updates happen, deployments stall, pods enter crash loops. Since regular devs might
+not have luxury of worrying about that and simply need to get stuff done, you end
+up being the nanny for the lovercaftian pile of complexity, always ready to firefight
+at a moments notice. And you don't really get a choice: once a downtime happens
+at an infra level you have to step in and fix things ASAP because the devs will lack
+experience and credentials to do anything to unfuck the mess. I attempted to somewhat hedge against
+that pressure by proliferating the knowledge about the system internals, but you
+can't really expect someone to learn k8s if they don't really need to use it
+directly. Having a team of infra people helps to shed the load, but you know that
+the day will come when you'll be the one scrambling to solve some obscure issue 
+with networking which prevents an important release from working.
+
+Its a busy line of work, but not the kind of busy I perform well under. In the
+process the infra work gained a tremendous amount of respect from me: it takes
+a specific mindset to operate well in such environment, and I feel like I don't
+really have what it takes to do that. Sure it might be good for your ego to
+get to the point where you have all of the keys to the kingdom, but the implications
+and responsibility it brings with it weighs on me heavily, since I specifically
+don't want to be a single point of failure. 
+
+In a sense I ended up feeling like I put myself in a cage of my own creation, and
+bars were made of the responsibility and being on the critical path of failure.
+And I knew that it was a matter of when and not if an infra failure will occur.
+While being important, I still didn't get to the realm of solving actual, non-self-imposed
+problems that people want to have solved, just sat there in the background, trying
+to shield the other devs from the messiness. 
+
+I started asking myself: "I like engineering, but do I _really_ like _overengineering_?"
+I could not find a satisfying answer, and with each passing day I felt that either 
+I needed to change myself and accept this new status quo, or I needed to change what I do.
+
 
 # Recapitulation: Backend
-- Decided to look for a better direction
-    - Android/Web UI is too much concerned with the user interaction and not enough 
-    with the core problem solving (usually)
-    - ML is way too stochastic for my liking
-    - Infra is way too far from the core problem solving as well and has a very wide 
-    scope of control and difficaulty with testing
-- What I wanted was:
-    - Something that will solve end-user problems
-    - Short feedback cycles (ideally as short as possibe)
-    - Deterministic in nature (at least to a reasonable degree)
-    - Complex enough for evolving expertise
-    - Simple enough to reason about the core of the system
-    - Not innately limited to particular domain
-    - With a good engineering effort behind it and not just some random bunch of ideas
-    - If possible - no or very limited amount of UI work specifically
-- This pretty much boiled down to chosing between system, IoT and backend programming, 
-of which I picked the latter.
-- Based on my experience in various languages I ended up chosing Go as my next language
-    - straightfoward and pragmatic design
-    - healthy community
-    - wealth of resources
-    - good performance
-    - easy to reason about
-    - restrictive enough to limit some suboptimal software design patterns 
-    - general enough to be useful in many contexts
-- Focused my attention on a lot of foundational resources for software development, including
-various RFCs and official docs.
-- Went through the process of trying and implementing various such concepts (e.g. TDD/BDD, CQRS, OpenAPI etc.)
-in short focused sessions (which I call etudes and perhaps will cover in a separate post).
-- It feels good to finally be able to understand in detail what is going on and not just be relegated to
-using some cargo-culted adhoc vendor-specific piece of code.
-- The things I've learned along the way made me appreciate the various levels of work that goes into making something
-- I hope to use my cross-domain experience to better guide my development efforts in the future and have an informed 
-opinion on various technical aspects
-- For the foreseable future I plan to focus specifically on backend, but I will remain open to adjacent fields
-like system programming or IoT or perhaps even trying out a fullstack role sometime
+
+While still employed, I decided to look inwards, analyze my previous experience
+and search for a better direction. Infrastructure seems overly complicated and pretty
+far from the core application work and was essentially a constant firefighting mode,
+which I did not enjoy. ML was way too experimental in nature, with long feedlback
+loops, inherent uncertainty and a maddening pace of innovation with which I could
+not keep up (and, frankly, did not want to keep up either). I did not want to turn
+back into UI work as well, as I did not find that interesting, so Android was
+mostly out of the question as well.
+
+In doing that it dawned on me that many times in my career I chose to switch _from_
+something without a clear understanding _where i'm switching to_: UI drove me from Android,
+I diliked the experimental nature of ML and did not want to tackle the overcomplication of infra
+- but the choice of a replacement was less of reflection of what I wanted and more about
+what I avoided from my previous choice. 
+
+"What do I want?" - the thought that simmered in the back of my mind for a few weeks, as
+I slowly unraveled the answer and its implication.
+
+I like engineering: problem solving, careful analysis of options, use of tools I have
+to solve the problems at hand - all while balancing the tradeoffs. I also like
+some semblance of rigor and not just willy-nilly "hope it works" ad-hoc mindset.
+I see enormous value in simplicity and clarity - both for code and communication
+around it. I want to be certain in the outcomes of my work (in a narrow way of
+"the code is doing what it is expected to do"). I want to be able to learn foundational
+principles and use them as a basis of my work instead of blindly relying on magic
+boxes or impenetrabe abstractions obscuring what is actualy going on. I like short
+feedback cycles. I liked deterministic or at the very least predictable systems,
+complex enough to be powerful and simple enough to still allow reasoning about them.
+I want to not be limited to a single domain. Oh, and finally - I'd like to have 
+nothing to do with UI to the degree it is possible.
+
+The choice really boiled down to writing application logic (except for the UI),
+and practically was one of: systems programming (where the work is more fundamental,
+but further from end-users most of the time) or backend, although the line between
+the two might be pretty arbitrary these days.
+
+It became pretty obvious that what I wanted was very much related to backend application engineering -
+shocker, I know. I've spent years circling it, seeing it from the outside but
+not noticing the forest behind the trees, over- or undershooting the optimum in
+hopes that this time it would be better.
+
+But I did not want to rush with my decision, not yet. Backend itself is a pretty
+wide domain, with marked differences in culture and before committing to yet another
+switch, I had to know where I planned to land. I've spent many hours researching
+various languages (at this point I've seen a lot of them and knew what features
+I did and did not like), the business domains those tended to cover, the communities
+surrounding them, adoption (it would be unwise to seriously look for a Haskell 
+job for example) and just general vibes.
+
+I've seen my fair share of Python, so it was not an option for me, along with
+anything that did not have static types as the main mode of operation (so js/ts, php
+and ruby). I also did not want to have to traverse overcomplicated syntax with 
+lots of hidden behavior, leaving kotlin (with its abundance of syntactic sugar) 
+and c++ (admittedly - a skill issue on my part) on the sidelines. Additionally, I
+put off Rust specifically just because I was not in the mood of learning about 
+the borrow checker - I had written a few hundred lines of rust before shelving 
+it as a curiosity that may deserve another deep dive later. This landed me in 
+c#/java/go gauntlet, and since I had plenty of experience with the former two
+during my Android years, I gave Go a go (pun intended).
+
+And it sure did deliver. I knew about go being used in various infra stuff (docker,
+k8s), but only once I got to play with it a bit did I understand the appeal. It
+is very straightforward to read (c-style syntax), to the point of being almost 
+simplistic in design (no inheritance, very little syntax sugar, no operator or
+method overloading or even keyword args, no exceptions), but the features it has (implicitly implemented
+interfaces, first-class concurrency primitives with channels ang goroutines,
+errors-as-values, defer, explicit control flow, good performance, single mainline
+compiler, c bindings infrastructure, batteries-included stdlib, source-based first-party package
+management, good lsp out of the box) make it very versatile. It shows why someone
+at google would want a language like that for their backend-needs.
+
+Another great thing about go is the abundance of documentation and online resources,
+complemented by the fact that you can essentially drop into any golang codebase
+and know what is going on, making it very easy to learn-by-example (I find myself
+reading the sources of my dependencies much more often than I did with python).
+
+The dev culture around it also favors simplicity, avoidance of unnecessary dependencies and
+pragmatic approaches, which is to me is a pretty healthy sign (looking at you, React).
+Turns out there is a longstanding community of go devs in Ukraine, which I was
+able to easily integrate into, giving me a nice space to chat about the language
+(and more) with more experienced engineers.
+
+These factors combined (and maybe a dash of novelty) made me select Go as my next 
+tool of choice. Once I got to that decision - I offloaded my infra responsibilities,
+submitted my one month notice and started working on a transition plan.
+
+// - describe the sabbatical in general terms and then focus on the dev aspects
+
+/// This might fit better in the next section? or a separate one for the description of my transition?
+// - Focused my attention on a lot of foundational resources for software development, including
+// various RFCs and official docs.
+// - Went through the process of trying and implementing various such concepts (e.g. TDD/BDD, CQRS, OpenAPI etc.)
+// in short focused sessions (which I call etudes and perhaps will cover in a separate post).
+// - It feels good to finally be able to understand in detail what is going on and not just be relegated to
+// using some cargo-culted adhoc vendor-specific piece of code.
+// - The things I've learned along the way made me appreciate the various levels of work that goes into making something
+// - I hope to use my cross-domain experience to better guide my development efforts in the future and have an informed 
+// opinion on various technical aspects
+// - For the foreseable future I plan to focus specifically on backend, but I will remain open to adjacent fields
+// like system programming or IoT or perhaps even trying out a fullstack role sometime
 
 ## Why this time is different
-My previous career shifts were mostly motivated by a negative experience: the main thing about the switches was
-switching from something and much less thought was given what to switch into. I didn't want to work on UI so
-I went to ML. I didnt want long and difficult experimentation and went into infra. And one might even suspect that
-in going from infra I wanted to avoid the constant pressure of supporting the rest of the team. While the last part
-is true, the main reason this time is different is because I know what I want. I want to work on the business logic
-side of things. I want to be able to prove that what I've implemented adheres to the requirements. I want to
-be confident in my work and know the ins and outs by starting from fundamentals and going upwards. I want to
-utilize my problem solving skills in an efficient and productive way. I want to have fun while doing it.
-
-The break I took from my last position proved to me that achieving this is possible: once again I feel like I can
-meaningfully build on my knowledge, tackle concepts of increasingly complex nature and not depend on some unforeseen
-forces swaying my chanches of getting better. Turns out you can just do stuff.
+// My previous career shifts were mostly motivated by a negative experience: the main thing about the switches was
+// switching from something and much less thought was given what to switch into. I didn't want to work on UI so
+// I went to ML. I didnt want long and difficult experimentation and went into infra. And one might even suspect that
+// in going from infra I wanted to avoid the constant pressure of supporting the rest of the team. While the last part
+// is true, the main reason this time is different is because I know what I want. I want to work on the business logic
+// side of things. I want to be able to prove that what I've implemented adheres to the requirements. I want to
+// be confident in my work and know the ins and outs by starting from fundamentals and going upwards. I want to
+// utilize my problem solving skills in an efficient and productive way. I want to have fun while doing it.
+// 
+// The break I took from my last position proved to me that achieving this is possible: once again I feel like I can
+// meaningfully build on my knowledge, tackle concepts of increasingly complex nature and not depend on some unforeseen
+// forces swaying my chanches of getting better. Turns out you can just do stuff.
