@@ -144,33 +144,126 @@ I wanted to get away from UI work, become something more important and do someth
 more _free_.
 
 # Trying exciting new things: ML
-- By coincidence looked into ML thanks to a new coworker
-- Rekindled my math skills, thought it to be a better use of my time
-- Was right around the time ML was gaining widespread adoption, got to work on
-different domains
+Right around that time we got a new coworker in our office, who sat pretty close to me.
+He had some background in math (as a teacher at uni) and was undergoing a career shift
+into ML on his own. Occasionally during the office banter he mentioned cool ideas like
+making machines learn from data, and solving problems by applying concepts from calulus
+and statistics. I heard of the domain a few years prior, while still in school,
+but disregarded it as something either too niche or too complicated or both. Yet from
+our discussions it seemed that the prerequisites for getting started were not that
+high: a bit of python here, some coursera courses from Andrew Ng and bam - you can
+become an ML guy as well.
+
+Being open to try new things and gravitating to challenging myself with math, I
+started listening to lectures online. In a few weeks of self paced study I found
+myself pretty intrested in this new emerging field. It helped a lot that the coworker
+had actual projects alredy and shared his notes on the matter. Turns out it was
+possible to work in data science, there was a rapidly growing market and the set
+of problems you could focus on was pretty wide: from computer vision to natural
+language processing, from detecting fraud to stock predictions.
+
+This was a pretty strange time for me - each day I spent working on another
+Android button i wondered what would the other world look like, the one where I
+was doing some interesting research, crunhing numbers and learning about AI-adjacent
+stuff. It bothered me to continue with the now routine steps of transforming a UI
+design into a clickable application that displays the data from the server. I wanted
+change, I wanted to go outside the local minimum I found myself in in search of
+a global optimum (this was pretty much the words I used in my head, all under the
+influence of the study material).
+
+And so I took a leap of faith - abandoned my position as an Android dev in favor
+of becoming a data scientist/ml engineer. This was a first for me and I was afraid
+of regretting it. The company I worked in had no meaningful way to integrate data
+science into its business model of being an outsorce dev shop, and the coworker had
+soon left to start his own thing. I followed him and was among the first few people
+he took mentorship of. 
+
+What followed was a pretty diverse experience of doing various DS/ML stuff: projects
+were of different sizes, of different domains, requiring different sets of tools
+and skills. There was fraud detection, sentiment analysis, image classification,
+object detection, regression. We used both classical ML tools (scikit learn, various
+boosting frameworks) and the newfangled deep learning stuff (tensorflow, pytorch, keras,
+fastai, various cloud offerings). ML was becoming something that many companies heard of
+and found internal usecases for.
 
 ## The Good
-- Learned about the research process from inside: from problem statement and data
-gathering to reports and deployment and how it fits the business processes.
-- Got somewhat close to the edge of contemporary research and read a bunch of papers,
-which remains helpful to this day.
-- Took up Python, and by necessity looked into modern APIs
-- Focused on streamlining research process as much as possible through automated
-experiment tracking
-- Learned about the importance of clear communication with stakeholders on the intricacies
-of technical aspects that will prove important.
+
+I got into ML right about the time it got its renaissance (2019). The 
+publicity around it was pretty optimistic with the research around detecting
+and preventing diseases being something that inspired me. One of the highlights of
+my career in ML was helping the team at London School of Hygiene and Tropical 
+Medicine speed up their analysis pipeline for various drugs targeting malaria
+in mosquitoes, which ended up as a peer reviewed article in pubMed - something
+I'll remain proud probably for the rest of my life. I got to play with language
+models before the chatGPT era and witnessed first hand its progression from a novel
+NLP architecture to the behemoth of an industry it currently is.
+
+Python, while less reliable than statically typed languages, proved to be a very
+versatile tool: you can do a lot of stuff just by importing a few packages from
+pypi. Having to expose the models to outside world made it necessary to learn about
+many backend concepts, as well as touch up on infra in the process: I learned how
+to work in modern cloud environments as an application developer even though that
+was not something I explicitly aimed for at the time.
+
+Also this was the first time where I routinely had to use math in my professional
+work: matrices, derivatives, optimization, numerical methods, transforming problems
+from business domains into models was pretty cool. I was surprised by the seeming
+simplicity of the machinery behind a lot of the ideas (from the practitioner standpoint).
+Sure, at times the math got hairy, but still it felt like the essence of the thing
+was tangible: even implementing a transformer at some point became not that unsurmountable
+of a task.
+
+On the soft skill side, the job itself posed a lot of communication
+challenges - you had to learn how to navigate the business needs and the 
+complexity of the tools you try to use to solve them, putting
+emphasis on clear language and management of the domain knowledge. Documenting
+your own research proved pretty useful as well: being able to identify which
+specific thing that you changed lead to a change in metrics was very valuable for
+pretty much all of the projects, leading me to spend many hours on reproducibility -
+which I throughly enjoyed.
 
 ## The Bad
-- There is no guarantee you can give about the success of your work ahead of time
-- The area is genuinely close to research with all of its idiosyncies around statistics,
-interpretation and reproducibility
-- The dev culture among DS is lacking and is full of cruft, ad-hoc solutions and is
-generally full of PhD-style of code that solves the problem in almost intractable ways
-- The result of your work is not something that can live independently, possibly requires
-specific complicated infrastructure and is poised to be a subservient of some other system
-- Experimentation is costly in terms of time and resources, feedback loops are long
-and not necessarily result in meaninful intuition on next steps other "well that didn't work"
-- I wanted to get back into something closer to engineering and spend less time doing scientific research
+
+But it was not without a price, which I didn't anticipate before: uncertainty. Data
+science turned out to be exacty that - _a science_. With the hypotheses and experiments
+being at the core you could not be certain that what you did is optimal. Or if what you
+attempted is even possible with your kind of data or current tech. Sometimes the months
+you've spent on trying stuff out will simply not result in any meaningful change
+to the target metrics. And that was the reality I had to accept.
+
+At the time there was a lot of excitement towards the future promises of ML/DS/AI,
+but the timing was a bit awkward. There were a lot of problems that were not yet
+actually solved. In many cases being good at some benchmark metric was simply
+not good enough for the business needs. Sometimes
+you could get it to work well enough, but oftentimes that was simply not the case.
+And once you did all you could muster from the current research - there was pretty
+much nothing left for you to try (under the resource limitations of average project
+that is). And even if you got good metrics on paper it didn't necessarily meant that
+was a represenative measurement (data leaks, distributon shift, sample size being too small etc).
+There was no real underlying neat story of "we solved X" without a lot of hidden assumtions,
+biases and inaccuracies inherent in the research as a whole.
+
+What also bothered me was a certain lack of engineering mindset among the practitioners.
+Ad hoc scripts everywhere, single-letter naming for variables is the norm, no type hints,
+no meaningful documentation, testing is scarce at best and misleading/useless at worst.
+I know that the selection process for ML people favored
+those with good math skillset, and math in turn is especially terse. But I simply got
+fed up with it. I wanted to be an engineer with good practices and not some script-kiddie
+throwing stuff against the wall and keeping what sticks. I tried introducing better
+conventions but it didn't matter as long as the metrics went up and the problem was
+solved. I guess this worldview deserves a right to live, but I could not bear all
+of the cruft I saw - it was like hearing nails on the chalkboard.
+
+And once again I felt that ML by itslef is not really viable. You needed a project around it,
+the algos are hungry for data and compute: you could not really conjure stuff into existence in a vacuum.
+And if you have those the experimentation is pretty slow, feedback loops are long, which led to my
+frustration numerous times. If you wanted to get up to speed with the cutting edge research - get ready
+to spend some moneys on the compute, cause the days when you could do useful stuff on your laptop
+were ending pretty soon.
+
+I wanted simpler things, something I could learn meaningfully on my own and not be blindsided
+by a new reseach paper that spent a few millions on training compute. I wanted a certain kind
+of sovereignity in terms of technology, get back into engineering and away from doing research.
 
 # Getting wider in scope: Infra
 - Started interacting with infra during ML days and it piqued my interest
