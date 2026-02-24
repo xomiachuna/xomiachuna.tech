@@ -411,8 +411,8 @@ mostly out of the question as well.
 
 In doing that it dawned on me that many times in my career I chose to switch _from_
 something without a clear understanding _where i'm switching to_: UI drove me from Android,
-I diliked the experimental nature of ML and did not want to tackle the overcomplication of infra
-- but the choice of a replacement was less of reflection of what I wanted and more about
+I diliked the experimental nature of ML and did not want to tackle the overcomplication of infra - but
+the choice of a replacement was less of reflection of what I wanted and more about
 what I avoided from my previous choice. 
 
 "What do I want?" - the thought that simmered in the back of my mind for a few weeks, as
