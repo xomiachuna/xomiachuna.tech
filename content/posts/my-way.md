@@ -3,9 +3,6 @@ date: '2026-02-20T20:14:50+01:00'
 draft: true
 title: 'My Way (So Far)'
 ---
-# TL;DR
-TODO: a short paragraph to summarize the contents of this post
-
 # Beginning
 Since childhood I was captivated with sciences. The interest was
 fueled by a trove of children's encyclopedia my parents got for me, and for a few
@@ -464,56 +461,115 @@ c#/java/go gauntlet, and since I had plenty of experience with the former two
 during my Android years, I gave Go a go (pun intended).
 
 And it sure did deliver. I knew about go being used in various infra stuff (docker,
-k8s), but only once I got to play with it a bit did I understand the appeal. It
-is very straightforward to read (c-style syntax), to the point of being almost 
-simplistic in design (no inheritance, very little syntax sugar, no operator or
-method overloading or even keyword args, no exceptions), but the features it has (implicitly implemented
-interfaces, first-class concurrency primitives with channels ang goroutines,
-errors-as-values, defer, explicit control flow, good performance, single mainline
-compiler, c bindings infrastructure, batteries-included stdlib, source-based first-party package
-management, good lsp out of the box) make it very versatile. It shows why someone
-at google would want a language like that for their backend-needs.
+k8s), but only once I got to play with it a bit did I understand the appeal - it
+shows restraint. The syntax is straightforward, attemts to hide as little from you as possible
+and rewards simplicity. It is not fancy, but asserts - and proves - that you
+can do a lot with little. It looks and feels like tool that somebody with many
+years of experience in very complicated environments would come up with to
+boil things down to essentials to simplify their work and yet still be able to
+tackle difficult problems when needed (which very much represents the history behind Go).
+That resonated with me deeply, probably more than I actually expected when looking
+into the language for the first time.
 
 Another great thing about go is the abundance of documentation and online resources,
 complemented by the fact that you can essentially drop into any golang codebase
 and know what is going on, making it very easy to learn-by-example (I find myself
-reading the sources of my dependencies much more often than I did with python).
-
-The dev culture around it also favors simplicity, avoidance of unnecessary dependencies and
+reading the sources of my dependencies much more often than I did with python, its
+just that natural). The dev culture around it also favors 
+simplicity, avoidance of unnecessary dependencies and
 pragmatic approaches, which is to me is a pretty healthy sign (looking at you, React).
-Turns out there is a longstanding community of go devs in Ukraine, which I was
+As it turns out there is a longstanding community of go devs in Ukraine, which I was
 able to easily integrate into, giving me a nice space to chat about the language
 (and more) with more experienced engineers.
 
 These factors combined (and maybe a dash of novelty) made me select Go as my next 
-tool of choice. Once I got to that decision - I offloaded my infra responsibilities,
-submitted my one month notice and started working on a transition plan.
+tool of choice. And by that point I felt like I new what the direction going forward
+looked like for me. Once I got to that decision, the only things remaining were a
+gentle transition from my current work and the following switch into my next role.
+The offboarding was somewhat simple - just had to train my replacement for a month or two
+and submit my notice. The other part I did not want to rush though. 
 
-// - describe the sabbatical in general terms and then focus on the dev aspects
+A career shift seemed like a good chance to take long-deserved break: I didn't
+really have an opportunity to take a breather since the start of the fullscale
+invasion in 2022 up until that point, so decided to capitalize on the opportunity.
+I wanted to take some time off to unwind, catch up on some media I put off for
+later and generally introspect for a bit. I had plenty of savings - enough to 
+give a runway of more than a year if needed, so was in no rush. By chance, an
+opportunity to spend a few weeks abroad presented itself right at the beginning
+of my sabbatical, giving me a proper context shift and a major reset from the
+mundane by means of exposing me to the beauty of Provence. 
 
-/// This might fit better in the next section? or a separate one for the description of my transition?
-// - Focused my attention on a lot of foundational resources for software development, including
-// various RFCs and official docs.
-// - Went through the process of trying and implementing various such concepts (e.g. TDD/BDD, CQRS, OpenAPI etc.)
-// in short focused sessions (which I call etudes and perhaps will cover in a separate post).
-// - It feels good to finally be able to understand in detail what is going on and not just be relegated to
-// using some cargo-culted adhoc vendor-specific piece of code.
-// - The things I've learned along the way made me appreciate the various levels of work that goes into making something
-// - I hope to use my cross-domain experience to better guide my development efforts in the future and have an informed 
-// opinion on various technical aspects
-// - For the foreseable future I plan to focus specifically on backend, but I will remain open to adjacent fields
-// like system programming or IoT or perhaps even trying out a fullstack role sometime
+Once back home I took up piano lessons, and while I didn't get to a level I would be confident
+in showing to anyone, the music itself fascinated me. It led me down a rabbit
+hole of studying music theory, learning how to create music with DAWs and even
+looking into modular sythesis - all things I never though would be accessible to
+my non-artsy beep-boop brain and reserved only to those with innate talent. This
+challenged my view of myself as "just a tech guy", undermining my - admittedly very
+reductionist - idea that you ought to belong to a category or be described by a label
+and that you have little power in changing your nature through nurture. Were those
+specific restrictions mostly in my head? Was I missing out on a whole world of things
+one can do that I deemed to be inaccessible to me just because I didn't view myself
+as even worthy of a try? I came to the conclusion that yes, it is possible to do
+a lot of things you might not have dared in the past - the decisive part is bravery
+and effort.
 
-## Why this time is different
-// My previous career shifts were mostly motivated by a negative experience: the main thing about the switches was
-// switching from something and much less thought was given what to switch into. I didn't want to work on UI so
-// I went to ML. I didnt want long and difficult experimentation and went into infra. And one might even suspect that
-// in going from infra I wanted to avoid the constant pressure of supporting the rest of the team. While the last part
-// is true, the main reason this time is different is because I know what I want. I want to work on the business logic
-// side of things. I want to be able to prove that what I've implemented adheres to the requirements. I want to
-// be confident in my work and know the ins and outs by starting from fundamentals and going upwards. I want to
-// utilize my problem solving skills in an efficient and productive way. I want to have fun while doing it.
-// 
-// The break I took from my last position proved to me that achieving this is possible: once again I feel like I can
-// meaningfully build on my knowledge, tackle concepts of increasingly complex nature and not depend on some unforeseen
-// forces swaying my chanches of getting better. Turns out you can just do stuff.
+In between the exploration of music as an artform and some carefree media consumption,
+I started working on building up a good foundation for a backend engineer. 
+Probably for the first time in my career I went through the whole programming language specification, which turned out to
+be a pretty simple endevour, making me appreciate Go even more. Doing
+tiny very focused explorations of certain concepts (like specifics of working with
+channels and goroutine for example), which I ended up shamelessly calling "etudes",
+proved to be a useful way of study for me. My reasoning is that I'm pretty bad 
+at coming up with project ideas just for the sake of learning a couple of tools,
+so just straight up focusing on the tools without having to come up with some
+application that would motivate the use of them was pretty useful simplification.
+
+Feeling a bit empowered with go docs, I leveled up my game and went for _The Texts_ -
+various RFCs that sit at the foundation of countless protocols and describe the exact
+specification of how many very important things work under the hood. While working
+with Android I didn't get to the point of being confident in my skills to tackle
+those, and the later occupations were much more reliant on either papers (of various
+level of accessibility) or a bunch of know-how scattered throughout many sources (in
+the case of infra), and finally being able to just read and understand how things
+actually work was very rewarding for me, resolving many of my gestalts in the process.
+
+Once again I got a confirmation that I can learn things given enough time and effort - 
+including the lower levels as well and the feeling was liberating. 
+
+In the process I refined my notetaking process (a habit I formed a few years ago)
+in a way that best suited my brain: notes-as-you-go, often mirroring something 
+from the spec but never a copy-paste. Writing turned out to be pretty transformative 
+for knowledge consolidation - more than I expected. 
+In fact this very essay is a direct result of me wanting to better understand
+what led me to the place I'm in and lead to some insights in the process.
+
+A somewhat unexped payoff of this focused way of learning was the realization that
+many complex things can actually be understood even without some gigabrain. As a corollary
+many abstractions do not hide something arcane but rather simplify some less-important
+details. This also applies to non-strictly-technical things: sometimes a mysterious,
+vague concept like DDD might not be that complicated in its core - just a set of
+practices one might choose to adopt as a starting point rather than an almost religious
+ritual you have to follow in its entirety.
+
+As many blindspots in my view of the realities of software slowly started to dissolve, I
+gained a renewed appreciation of the amount of effort it actually took to get us to
+where we are now. I saw many human-level aspects of it during my employment mostly,
+but the technological aspects were murky for most of my career. Of course, I don't
+pretent to know even a meaningful fraction of all things software, but the things
+I'm aware of now make me respect all of the billions of hours spent by millions
+of people over decades to solve so many practical problems (both fundamental and not) in
+order to enable and empower so much of human experience in recent years. The best
+way to describe this feeling is probably _kinship_ with a dash of empathy.
+
+# Conclusion
+
+I like where I ended up so far: the path might've been a bit chaotic before,
+perhaps without a clear sense of direction, but with enough distance I still
+ended up learning a lot along the way. In the past, I've spent a lot
+of time going from things I disliked, treating new opportunities as better by
+default - mainly because I did truly not know what I wanted at the time. In 
+wandering I developed a kind of taste, finding particular flavors of work more
+pleasurable than others. Now my preferences are specific enough for me to know
+where I want to go. 
+
+Turns out you can just do stuff.
