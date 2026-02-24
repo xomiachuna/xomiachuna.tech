@@ -3,573 +3,166 @@ date: '2026-02-20T20:14:50+01:00'
 draft: false
 title: 'My Way (So Far)'
 ---
-# Beginning
-Since childhood I was captivated with sciences. The interest was
-fueled by a trove of children's encyclopedia my parents got for me, and for a few
-years the primary kind of present I got was books full of illustrations about space,
-animals, technology, human body and adjacent topics. In school I often was at the
-top of my class at math, and later at other sciences. Physics specifically showed to me 
-that you can apply mathematical thinking in useful ways to solve practical problems.
-
-I heard about applied math and for some time even mused about pursuing it as a career.
-But even im my childhood naivetee I understood that it is not a realistic path to a
-stable job, not in Ukraine at least. My parents did not finish their higher education,
-and in fact I was going to be the first in my lineage to get a diploma, so I had to
-decide what to focus on during my highschool years. Mom and dad specifically asked
-me and my siblings to get a job unlike theirs, that is without difficult manual labor.
-
-Early 2010s made software as a career pretty commonly known option even in my part of 
-town - here and there you could hear about someones cousin working with computers
-for some international company and getting a good paycheck. I did not know about
-the economics of global IT market and the effects PPP had on the livelihoods
-of SWEs in Ukraine, making it dramatically more secure than many other options. But I
-knew that I liked playing games on the computer, and getting paid to do something
-with a keyboard and mouse seemed like a great deal to my highschool self. Even better
-still I heard that it is in some ways related to math, so I imagined my relationship
-with logic and structured thinking was not going to be over any time soon.
-
-I looked into basics of JS somewhere around 9th grade, but it was not something that
-clicked for me at first. Sure you could print text to a console, so what? So I shelved
-the idea for about a year and instead focused on math/physics. I got to regional
-level of physics olympiad and to a national level in math, but could not progress
-further than that - all otherwise good achievements, but I felt like I was running
-into some wall I could not describe. Not only was it about an actual problem solving
-skill issue but I also felt that my time for deciding what to pursue was getting short.
-I wanted actual usefulness, not some abstract in a vacuum type thing. The math started
-getting hairy, I couldn't grok it as easily as before, and solving equations did not show
-any clear path ahead for me.
-
-Once I got introduced to olympiad-style programming the things finally click for me.
-You could solve problems not that different to the ones you did with pan and paper,
-but also so much more. Right about the time I was doing prep work to a programming
-olympiad at school using pascal and python and got to play with graphs - I was hooked.
-The applicability seemed much more powerful. The beauty of seeing a data structure
-and an algorithm for it was the moment of no return. 
-
-In my final highschool year I once again got into national-level round of an olympiad, 
-but this time it was for programming. Despite not getting anything remarkable there, I was
-certain about what I'm going to chose next. At that point I had no idea how traversing
-graphs or linked lists could earn you money, but figured that I'll get to it once I
-start my major.
-
-During my first year doing a CS major I got familiar with the professional scene in my
-hometown. Despite the city being not that big, the tech comunity was pretty active, with
-plenty of events and oportunities to find a way to enter. I did a few bootcamps before
-finally landing my first real job just a few weeks after I turned 18 as an Android dev.
-At that point I knew that I no longer have to think of some backup strategy in case I will not
-be able to get into software (which probably would be something like engineering). I was
-happy as finaly I could put my analytical mind to some good use and start earning a living.
-
-# First steps: Android
-
-The first few months on the job were very insightful to me and culminated with me shipping
-my first few lines of code. My change sadly introduced a bug related to null-pointer 
-dereference and caused a runtime crash. The feature was heavily sought after by the users
-so in a span of few day it crashed the app more than 10k times. Yeah, off to a great start,
-I thought. But considering that the company was pretty young at that time and the experience
-of my teammates was maybe a year more than mine this was not that terrible. We rolled out a
-fix, and in the future the null checks were a bit less of an issue.
-
-At that point the continual learning aspect of the job dawned on me. Everyone was learning.
-Things you now find difficult were just as difficult to your teammates a few months ago.
-and the pace of learning on the job was far greater than you would see in self-study, at
-least initially. Every couple of days you were introduced to new concepts: SOLID, MPV,
-MVC, IOC, DI, unit tests, logging, integration, code review, clean code, design patterns,
-package managers, libraries and frameworks. I used to get images of IOC in my sleep,
-ruminated on OOP concepts during my commute, imagined marble diagrams of events in a
-reactive stream. I was hungry for knowledge, and my peers shared this sentiment. Together
-we helped each other discover novel for us concepts and bit by bit learned what not to
-do. At the time we didn't have much senior supervision, apart from some occasional
-sessions with a few guys from another company. Sure, there were some large gaps in
-things we didn't know we didn't know, but when it came to making stuff we were in a
-good enough place.
-
-One pretty important lesson I learned at the time was the importance of having a good team.
-Software is complicated, and it takes time to get familiar with a new project, and
-being not alone in that pursuit was very reassuring: I might not fully understand
-what this particular piece of code is doing, but checking git blame I'll get to
-someone who probably does, allowing me to ask some questions right at their desk if
-need may be. Similarly, others could ask me about the things I wrote in the very same manner. 
-To this day I cherish the peer-level kinship I felt towards my coworkers,
-as we were all in pretty similar conditions, resulting in a very open mindset. 
-(To be clear - the kinship is still there, just not that rose-tinted as it was then).
-
-But as time went on and I learned enough to be productive at my job I started to
-feel a bit unsatisfied in ways did not initially expect. Turns out there are different
-kinds of code: some code is more essential to the inner workings of the project.
-In my view at the time (in the context of Android apps being just another client for some API)
-UI was a second-grade citizen because it concerned itself with aesthetics mostly,
-and relied on the core business logic be performed somewhere else. I like looking
-at pretty things, but turns out working on making things beautiful was not that easy
-even if you had the designs in photoshop. I found the disproportionate amount of
-time spent perfecting shadow gradients and subtle spacing across different screens
-not very enjoyable: it was not much of a problem solving thing and rather "which
-particuar attribute I have to use to achieve this specific effect". Thats when
-I started to suspect that I don't like doing UI, and since android was pretty
-much about UI, I scrambled to find a way out.
-
-## The Good
-
-I liked plenty of things about android dev experience (other than the fact that
-it got me into software). I could
-easily show people outside of work what I was working on. I knew through
-in-app analytics that users interacted with the buttons I implemented or visited
-the screens I worked on. The lag-free experience target was a very real teacher of
-respect towards main thread. Using various APIs showed me how you can perform
-integration of multiple separate systems into one useable package. Android had
-a few platform-specific constraints around activity and frament lifecycle that
-made architecture decisions important early on. UI logic is different from algorithmic
-challenges and is much more about the flow of control than some Big-O efficiency.
-Since the job was a mixture of Xamarin.Android and native Android I got to see
-how modern languages (c# and kotlin) might approach the same problems using a different
-syntax and let me dip a toe in some functional programming concepts. 
-
-## The Bad
-
-I came to a conclusion that simply I didn't enjoy the visual
-aspect of setting up layouts in Android Studio. Furthermore, I did not know anything about the
-behind the scenes of the HTTP APIs - all of it was just magic to me. I could not
-even use my knowledge to just develop apps for another platform like iOS 
-(yeah, sure, Xamarin promised that, but in reality you had to learn iOS development
-with Swift/Objective-C anyway). And besides
-that the application logic that we implemented was pretty much a thin wrapper around the
-API, so I felt like I was coasting on top of real work being done somewhere else.
-What I learned to do was useful, but not challenging in the way that I liked from algorithmical problems.
-Oh and right about that time I started to feel that Google had a very disproportionate
-grasp on the things I did, with my job essentially being a huge vendor lock-in.
-I wanted to get away from UI work, become something more important and do something 
-more _free_.
-
-# Trying exciting new things: ML
-Right around that time we got a new coworker in our office, who sat pretty close to me.
-He had some background in math (as a teacher at uni) and was undergoing a career shift
-into ML on his own. Occasionally during the office banter he mentioned cool ideas like
-making machines learn from data, and solving problems by applying concepts from calulus
-and statistics. I heard of the domain a few years prior, while still in school,
-but disregarded it as something either too niche or too complicated or both. Yet from
-our discussions it seemed that the prerequisites for getting started were not that
-high: a bit of python here, some coursera courses from Andrew Ng and bam - you can
-become an ML guy as well.
-
-Being open to try new things and gravitating to challenging myself with math, I
-started listening to lectures online. In a few weeks of self paced study I found
-myself pretty intrested in this new emerging field. It helped a lot that the coworker
-had actual projects alredy and shared his notes on the matter. Turns out it was
-possible to work in data science, there was a rapidly growing market and the set
-of problems you could focus on was pretty wide: from computer vision to natural
-language processing, from detecting fraud to stock predictions.
-
-This was a pretty strange time for me - each day I spent working on another
-Android button i wondered what would the other world look like, the one where I
-was doing some interesting research, crunhing numbers and learning about AI-adjacent
-stuff. It bothered me to continue with the now routine steps of transforming a UI
-design into a clickable application that displays the data from the server. I wanted
-change, I wanted to go outside the local minimum I found myself in in search of
-a global optimum (this was pretty much the words I used in my head, all under the
-influence of the study material).
-
-And so I took a leap of faith - abandoned my position as an Android dev in favor
-of becoming a data scientist/ml engineer. This was a first for me and I was afraid
-of regretting it. The company I worked in had no meaningful way to integrate data
-science into its business model of being an outsorce dev shop, and the coworker had
-soon left to start his own thing. I followed him and was among the first few people
-he took mentorship of. 
-
-What followed was a pretty diverse experience of doing various DS/ML stuff: projects
-were of different sizes, of different domains, requiring different sets of tools
-and skills. There was fraud detection, sentiment analysis, image classification,
-object detection, regression. We used both classical ML tools (scikit learn, various
-boosting frameworks) and the newfangled deep learning stuff (tensorflow, pytorch, keras,
-fastai, various cloud offerings). ML was becoming something that many companies heard of
-and found internal usecases for.
-
-## The Good
-
-I got into ML right about the time it got its renaissance (2019). The 
-publicity around it was pretty optimistic with the research around detecting
-and preventing diseases being something that inspired me. One of the highlights of
-my career in ML was helping the team at London School of Hygiene and Tropical 
-Medicine speed up their analysis pipeline for various drugs targeting malaria
-in mosquitoes, which ended up as a peer reviewed article in pubMed - something
-I'll remain proud probably for the rest of my life. I got to play with language
-models before the chatGPT era and witnessed first hand its progression from a novel
-NLP architecture to the behemoth of an industry it currently is.
-
-Python, while less reliable than statically typed languages, proved to be a very
-versatile tool: you can do a lot of stuff just by importing a few packages from
-pypi. Having to expose the models to outside world made it necessary to learn about
-many backend concepts, as well as touch up on infra in the process: I learned how
-to work in modern cloud environments as an application developer even though that
-was not something I explicitly aimed for at the time.
-
-Also this was the first time where I routinely had to use math in my professional
-work: matrices, derivatives, optimization, numerical methods, transforming problems
-from business domains into models was pretty cool. I was surprised by the seeming
-simplicity of the machinery behind a lot of the ideas (from the practitioner standpoint).
-Sure, at times the math got hairy, but still it felt like the essence of the thing
-was tangible: even implementing a transformer at some point became not that unsurmountable
-of a task.
-
-On the soft skill side, the job itself posed a lot of communication
-challenges - you had to learn how to navigate the business needs and the 
-complexity of the tools you try to use to solve them, putting
-emphasis on clear language and management of the domain knowledge. Documenting
-your own research proved pretty useful as well: being able to identify which
-specific thing that you changed lead to a change in metrics was very valuable for
-pretty much all of the projects, leading me to spend many hours on reproducibility -
-which I throughly enjoyed.
-
-## The Bad
-
-But it was not without a price, which I didn't anticipate before: uncertainty. Data
-science turned out to be exacty that - _a science_. With the hypotheses and experiments
-being at the core you could not be certain that what you did is optimal. Or if what you
-attempted is even possible with your kind of data or current tech. Sometimes the months
-you've spent on trying stuff out will simply not result in any meaningful change
-to the target metrics. And that was the reality I had to accept.
-
-At the time there was a lot of excitement towards the future promises of ML/DS/AI,
-but the timing was a bit awkward. There were a lot of problems that were not yet
-actually solved. In many cases being good at some benchmark metric was simply
-not good enough for the business needs. Sometimes
-you could get it to work well enough, but oftentimes that was simply not the case.
-And once you did all you could muster from the current research - there was pretty
-much nothing left for you to try (under the resource limitations of average project
-that is). And even if you got good metrics on paper it didn't necessarily meant that
-was a represenative measurement (data leaks, distributon shift, sample size being too small etc).
-There was no real underlying neat story of "we solved X" without a lot of hidden assumtions,
-biases and inaccuracies inherent in the research as a whole.
-
-What also bothered me was a certain lack of engineering mindset among the practitioners.
-Ad hoc scripts everywhere, single-letter naming for variables is the norm, no type hints,
-no meaningful documentation, testing is scarce at best and misleading/useless at worst.
-I know that the selection process for ML people favored
-those with good math skillset, and math in turn is especially terse. But I simply got
-fed up with it. I wanted to be an engineer with good practices and not some script-kiddie
-throwing stuff against the wall and keeping what sticks. I tried introducing better
-conventions but it didn't matter as long as the metrics went up and the problem was
-solved. I guess this worldview deserves a right to live, but I could not bear all
-of the cruft I saw - it was like hearing nails on the chalkboard.
-
-And once again I felt that ML by itslef is not really viable. You needed a project around it,
-the algos are hungry for data and compute: you could not really conjure stuff into existence in a vacuum.
-And if you have those the experimentation is pretty slow, feedback loops are long, which led to my
-frustration numerous times. If you wanted to get up to speed with the cutting edge research - get ready
-to spend some moneys on the compute, cause the days when you could do useful stuff on your laptop
-were ending pretty soon.
-
-I wanted simpler things, something I could learn meaningfully on my own and not be blindsided
-by a new reseach paper that spent a few millions on training compute. I wanted a certain kind
-of sovereignity in terms of technology, get back into engineering and away from doing research.
-
-# Getting wider in scope: Infra
-
-Since not many regular engineers knew how to work with ML artifacts, it was pretty
-common for you to handle the containerization and deployment of your work. In the
-beginning it was just something you had to do in order to finish the handoff, and
-it felt mostly like a chore. Since in my direct circle of ML coworkers I had the
-most classical SWE background it was natural for me to take on a mantle of someone
-who also knows how to handle the non-research part of the job. I started by giving
-a few short demos on how to use Docker to have a reproducible research env, then
-took a dive into orchestration with compose (nothing complicated, but sometimes
-you had to work with a db, and I'd like to avoid depending on my system package
-manager for that). 
-
-One project in particular required me to set up an ETL pipeline, for which I used
-Apache Airflow on top of kubernetes. In that particular case that was most certainly
-a case of cargo-culting, but the thing ended up working ok. I was impressed with
-the seeming flexibility one got with k8s and it simmered in the back of my mind
-for some time.
-
-Righ at the end of my ML role I wanted to take a break: some of it was due to
-just burnout of trying to keep up with the advances in the field, some - due
-to wanting to explore beyond just computers (I took up photography, both digital
-and film). Another major reason - I started to feel like many
-aspects of working in ML just didn't align well with my engineering-focused
-mindset.
-
-The break was for 6mo, and at some point I got pretty bored so decided to play
-a bit with tech, remembered my fascination with k8s and just went for a CKA
-prep course. The more I learned the more right it felt to use this _thing_ to
-tackle complexity of deployment. The concepts aligned neetly, the patterns of
-application structure seemed to map nicely onto the k8s ideas. It felt
-like the tech stack can be conceptualized as a set of building blocks that
-you only had to stick together in a right manner and it would work almost
-by magic. YAML became the most powerful language I knew at the time.
-
-While I didn't want to get into pure infra yet, having the ability to work with
-this almighty tool was something I needed. Right at the time there emerged another
-new field: MLOps - a mix of DevOps and ML, bridging a gap between ML and
-infra. There very few people on the marked that had that particular skillset,
-and I was pretty quick to land a job in ML infra startup, where I did exactly that:
-helped ML engineers utilize the modern infra stack without the need for them to
-learn much about the intricacies of deployment and focus on research instead.
-
-## The Good
-
-The first MLOps job I got was engaging: there was an in-house MLOps platform which
-needed to be developed and supported, internal ML team relied on guys like me
-to help troubleshoot some issues and used us for consultations on tech selection.
-We curated a set of ML tools that we knew were a good fit into our platform since
-we provided example showcase applications as example recipes.
-
-It was a deep-in-the-weeds kind of work: during average workday you juggled multiple
-tools and concepts, provided tech support for researchers, participated in initial triage of
-platform issues, communicated product info to the stakeholders. Feedback loops
-were short - in a few minutes you could go from initial alert to acknowledment of
-the issue on your side to resolution.
-
-The platform itself worked on top of k8s (and was a more high-level wrapper around it
-with ML-specific optimizations in usability), so I got intimately familiar with managing
-k8s in the process, heavily expanding on my previous mostly theoretical knowledge.
-Seeing the breadth of possibilities our hybrid cloud/onprem architecture provided
-was genuinely cool, and witnessing a DGX as one of your nodes somewhat blew my mind.
-
-I also was around the first llama + lora wave: amazing how quickly can a field
-pivot from small neural networks for image processing towards serving the behemoths
-that are modern LLMs, as the shift seemingly happened overnight. It was cool to read
-about such models being served on A100s and then in a week or two get to do that
-yourself - with modern infra it was easy to scale. We also did some wacky stuff
-with commodity hardware (like running llms on rented out consumer compute platforms),
-broadening my perspective of what is possible.
-
-Second MLOps job I got was pretty similar as well, but with more focus on infra
-(included bootstrapping a cloud env with terraform for a greenfield project, then
-managing model serving and the application layer deployments as well), which showed
-me more depths of the infra story, along with the organizational effects it has
-(i.e. the importance of it being reliable as a bedrock on which the other teams
-build their stuff). It was cool to be one of the grownups in the team, to have
-a very meaningful say in what technologies the team will use with tangible
-effects on the engineering. 
-
-At that point I reached a level of competence
-at which my impostor syndrome started to subside: I proved to myself that I can
-work in compex environments, see the development process holistically,
-and that I'm able to learn to do many things given enough patience and effort - 
-I just need to apply myself.
-
-## The Bad
-
-Its at the second job mostly that I started to realize the depth of modern
-infra, and the more it dawned on me the more it felt insurmountable. Everywhere
-I looked there were fractal layers of complexity, for each line of yaml you
-were toying with great power, ramifications of which were not readily obvious. For all of
-the promises of kubernetes to hide the complexity, the abstraction it provides 
-is pretty leaky. You still have to learn a lot of vendor-specific knowledge,
-the differences between kubernetes on say Azure and onprem are subtle but important.
-Depending on kubernetes impacts everyone on the team: complicating the deployment
-and introspection for the application developers, requiring you to bring your own
-observability or use the one from the cloud provider (defeating the vendor lock-in
-arguments). The abstraction layers over cloud infra like terraform bring their
-own idiosyncracies, requiring you to learn a whole new language and a set of rules
-for safely working with it, making you trade the fear of complexity for a fear of
-the thing buckling under itself upon a tiny config change.
-
-Oh and infra is far from being solved: machines crash, nodes disconnect, breaking
-updates happen, deployments stall, pods enter crash loops. Since regular devs might
-not have luxury of worrying about that and simply need to get stuff done, you end
-up being the nanny for the lovercaftian pile of complexity, always ready to firefight
-at a moments notice. And you don't really get a choice: once a downtime happens
-at an infra level you have to step in and fix things ASAP because the devs will lack
-experience and credentials to do anything to unfuck the mess. I attempted to somewhat hedge against
-that pressure by proliferating the knowledge about the system internals, but you
-can't really expect someone to learn k8s if they don't really need to use it
-directly. Having a team of infra people helps to shed the load, but you know that
-the day will come when you'll be the one scrambling to solve some obscure issue 
-with networking which prevents an important release from working.
-
-Its a busy line of work, but not the kind of busy I perform well under. In the
-process the infra work gained a tremendous amount of respect from me: it takes
-a specific mindset to operate well in such environment, and I feel like I don't
-really have what it takes to do that. Sure it might be good for your ego to
-get to the point where you have all of the keys to the kingdom, but the implications
-and responsibility it brings with it weighs on me heavily, since I specifically
-don't want to be a single point of failure. 
-
-In a sense I ended up feeling like I put myself in a cage of my own creation, and
-bars were made of the responsibility and being on the critical path of failure.
-And I knew that it was a matter of when and not if an infra failure will occur.
-While being important, I still didn't get to the realm of solving actual, non-self-imposed
-problems that people want to have solved, just sat there in the background, trying
-to shield the other devs from the messiness. 
-
-I started asking myself: "I like engineering, but do I _really_ like _overengineering_?"
-I could not find a satisfying answer, and with each passing day I felt that either 
-I needed to change myself and accept this new status quo, or I needed to change what I do.
-
-
-# Recapitulation: Backend
-
-While still employed, I decided to look inwards, analyze my previous experience
-and search for a better direction. Infrastructure seems overly complicated and pretty
-far from the core application work and was essentially a constant firefighting mode,
-which I did not enjoy. ML was way too experimental in nature, with long feedlback
-loops, inherent uncertainty and a maddening pace of innovation with which I could
-not keep up (and, frankly, did not want to keep up either). I did not want to turn
-back into UI work as well, as I did not find that interesting, so Android was
-mostly out of the question as well.
-
-In doing that it dawned on me that many times in my career I chose to switch _from_
-something without a clear understanding _where i'm switching to_: UI drove me from Android,
-I diliked the experimental nature of ML and did not want to tackle the overcomplication of infra - but
-the choice of a replacement was less of reflection of what I wanted and more about
-what I avoided from my previous choice. 
-
-"What do I want?" - the thought that simmered in the back of my mind for a few weeks, as
-I slowly unraveled the answer and its implication.
-
-I like engineering: problem solving, careful analysis of options, use of tools I have
-to solve the problems at hand - all while balancing the tradeoffs. I also like
-some semblance of rigor and not just willy-nilly "hope it works" ad-hoc mindset.
-I see enormous value in simplicity and clarity - both for code and communication
-around it. I want to be certain in the outcomes of my work (in a narrow way of
-"the code is doing what it is expected to do"). I want to be able to learn foundational
-principles and use them as a basis of my work instead of blindly relying on magic
-boxes or impenetrabe abstractions obscuring what is actualy going on. I like short
-feedback cycles. I liked deterministic or at the very least predictable systems,
-complex enough to be powerful and simple enough to still allow reasoning about them.
-I want to not be limited to a single domain. Oh, and finally - I'd like to have 
-nothing to do with UI to the degree it is possible.
-
-The choice really boiled down to writing application logic (except for the UI),
-and practically was one of: systems programming (where the work is more fundamental,
-but further from end-users most of the time) or backend, although the line between
-the two might be pretty arbitrary these days.
-
-It became pretty obvious that what I wanted was very much related to backend application engineering -
-shocker, I know. I've spent years circling it, seeing it from the outside but
-not noticing the forest behind the trees, over- or undershooting the optimum in
-hopes that this time it would be better.
-
-But I did not want to rush with my decision, not yet. Backend itself is a pretty
-wide domain, with marked differences in culture and before committing to yet another
-switch, I had to know where I planned to land. I've spent many hours researching
-various languages (at this point I've seen a lot of them and knew what features
-I did and did not like), the business domains those tended to cover, the communities
-surrounding them, adoption (it would be unwise to seriously look for a Haskell 
-job for example) and just general vibes.
-
-I've seen my fair share of Python, so it was not an option for me, along with
-anything that did not have static types as the main mode of operation (so js/ts, php
-and ruby). I also did not want to have to traverse overcomplicated syntax with 
-lots of hidden behavior, leaving kotlin (with its abundance of syntactic sugar) 
-and c++ (admittedly - a skill issue on my part) on the sidelines. Additionally, I
-put off Rust specifically just because I was not in the mood of learning about 
-the borrow checker - I had written a few hundred lines of rust before shelving 
-it as a curiosity that may deserve another deep dive later. This landed me in 
-c#/java/go gauntlet, and since I had plenty of experience with the former two
-during my Android years, I gave Go a go (pun intended).
-
-And it sure did deliver. I knew about go being used in various infra stuff (docker,
-k8s), but only once I got to play with it a bit did I understand the appeal - it
-shows restraint. The syntax is straightforward, attemts to hide as little from you as possible
-and rewards simplicity. It is not fancy, but asserts - and proves - that you
-can do a lot with little. It looks and feels like tool that somebody with many
-years of experience in very complicated environments would come up with to
-boil things down to essentials to simplify their work and yet still be able to
-tackle difficult problems when needed (which very much represents the history behind Go).
-That resonated with me deeply, probably more than I actually expected when looking
-into the language for the first time.
-
-Another great thing about go is the abundance of documentation and online resources,
-complemented by the fact that you can essentially drop into any golang codebase
-and know what is going on, making it very easy to learn-by-example (I find myself
-reading the sources of my dependencies much more often than I did with python, its
-just that natural). The dev culture around it also favors 
-simplicity, avoidance of unnecessary dependencies and
-pragmatic approaches, which is to me is a pretty healthy sign (looking at you, React).
-As it turns out there is a longstanding community of go devs in Ukraine, which I was
-able to easily integrate into, giving me a nice space to chat about the language
-(and more) with more experienced engineers.
-
-These factors combined (and maybe a dash of novelty) made me select Go as my next 
-tool of choice. And by that point I felt like I new what the direction going forward
-looked like for me. Once I got to that decision, the only things remaining were a
-gentle transition from my current work and the following switch into my next role.
-The offboarding was somewhat simple - just had to train my replacement for a month or two
-and submit my notice. The other part I did not want to rush though. 
-
-A career shift seemed like a good chance to take long-deserved break: I didn't
-really have an opportunity to take a breather since the start of the fullscale
-invasion in 2022 up until that point, so decided to capitalize on the opportunity.
-I wanted to take some time off to unwind, catch up on some media I put off for
-later and generally introspect for a bit. I had plenty of savings - enough to 
-give a runway of more than a year if needed, so was in no rush. By chance, an
-opportunity to spend a few weeks abroad presented itself right at the beginning
-of my sabbatical, giving me a proper context shift and a major reset from the
-mundane by means of exposing me to the beauty of Provence. 
-
-Once back home I took up piano lessons, and while I didn't get to a level I would be confident
-in showing to anyone, the music itself fascinated me. It led me down a rabbit
-hole of studying music theory, learning how to create music with DAWs and even
-looking into modular sythesis - all things I never though would be accessible to
-my non-artsy beep-boop brain and reserved only to those with innate talent. This
-challenged my view of myself as "just a tech guy", undermining my - admittedly very
-reductionist - idea that you ought to belong to a category or be described by a label
-and that you have little power in changing your nature through nurture. Were those
-specific restrictions mostly in my head? Was I missing out on a whole world of things
-one can do that I deemed to be inaccessible to me just because I didn't view myself
-as even worthy of a try? I came to the conclusion that yes, it is possible to do
-a lot of things you might not have dared in the past - the decisive part is bravery
-and effort.
-
-In between the exploration of music as an artform and some carefree media consumption,
-I started working on building up a good foundation for a backend engineer. 
-Probably for the first time in my career I went through the whole programming language specification, which turned out to
-be a pretty simple endevour, making me appreciate Go even more. Doing
-tiny very focused explorations of certain concepts (like specifics of working with
-channels and goroutine for example), which I ended up shamelessly calling "etudes",
-proved to be a useful way of study for me. My reasoning is that I'm pretty bad 
-at coming up with project ideas just for the sake of learning a couple of tools,
-so just straight up focusing on the tools without having to come up with some
-application that would motivate the use of them was pretty useful simplification.
-
-Feeling a bit empowered with go docs, I leveled up my game and went for _The Texts_ -
-various RFCs that sit at the foundation of countless protocols and describe the exact
-specification of how many very important things work under the hood. While working
-with Android I didn't get to the point of being confident in my skills to tackle
-those, and the later occupations were much more reliant on either papers (of various
-level of accessibility) or a bunch of know-how scattered throughout many sources (in
-the case of infra), and finally being able to just read and understand how things
-actually work was very rewarding for me, resolving many of my gestalts in the process.
-
-Once again I got a confirmation that I can learn things given enough time and effort - 
-including the lower levels as well and the feeling was liberating. 
-
-In the process I refined my notetaking process (a habit I formed a few years ago)
-in a way that best suited my brain: notes-as-you-go, often mirroring something 
-from the spec but never a copy-paste. Writing turned out to be pretty transformative 
-for knowledge consolidation - more than I expected. 
-In fact this very essay is a direct result of me wanting to better understand
-what led me to the place I'm in and lead to some insights in the process.
-
-A somewhat unexped payoff of this focused way of learning was the realization that
-many complex things can actually be understood even without some gigabrain. As a corollary
-many abstractions do not hide something arcane but rather simplify some less-important
-details. This also applies to non-strictly-technical things: sometimes a mysterious,
-vague concept like DDD might not be that complicated in its core - just a set of
-practices one might choose to adopt as a starting point rather than an almost religious
-ritual you have to follow in its entirety.
-
-As many blindspots in my view of the realities of software slowly started to dissolve, I
-gained a renewed appreciation of the amount of effort it actually took to get us to
-where we are now. I saw many human-level aspects of it during my employment mostly,
-but the technological aspects were murky for most of my career. Of course, I don't
-pretent to know even a meaningful fraction of all things software, but the things
-I'm aware of now make me respect all of the billions of hours spent by millions
-of people over decades to solve so many practical problems (both fundamental and not) in
-order to enable and empower so much of human experience in recent years. The best
-way to describe this feeling is probably _kinship_ with a dash of empathy.
-
-# Conclusion
-
-I like where I ended up so far: the path might've been a bit chaotic before,
-perhaps without a clear sense of direction, but with enough distance I still
-ended up learning a lot along the way. In the past, I've spent a lot
-of time going from things I disliked, treating new opportunities as better by
-default - mainly because I did truly not know what I wanted at the time. In 
-wandering I developed a kind of taste, finding particular flavors of work more
-pleasurable than others. Now my preferences are specific enough for me to know
-where I want to go. 
+## Beginning
+
+Since childhood, I was captivated with sciences. The interest was fueled by a trove of children’s encyclopedias my parents got for me, and for a few years, the primary kind of present I got was books full of illustrations about space, animals, technology, the human body, and adjacent topics. In school, I was often at the top of my class in math, and later in other sciences. Physics specifically showed me that you can apply mathematical thinking in useful ways to solve practical problems.
+
+I heard about applied math and, for some time, even mused about pursuing it as a career. But even in my childhood naivety, I understood that it is not a realistic path to a stable job, not in Ukraine at least. My parents did not finish their higher education, and in fact, I was going to be the first in my lineage to get a diploma, so I had to decide what to focus on during my high school years. Mom and Dad specifically asked my siblings and me to get a job unlike theirs, that is, without difficult manual labor.
+
+The early 2010s made software as a career a pretty commonly known option even in my part of town - here and there you could hear about someones cousin working with computers for some international company and getting a good paycheck. I did not know about the economics of the global IT market and the effects of PPP on the livelihoods of SWEs in Ukraine, making it dramatically more secure than many other options. But I knew that I liked playing games on the computer, and getting paid to do something with a keyboard and mouse seemed like a great deal to my high school self. Even better still, I heard that it is in some ways related to math, so I imagined my relationship with logic and structured thinking was not going to be over any time soon.
+
+I looked into the basics of JS somewhere around 9th grade, but it was not something that clicked for me at first. Sure, you could print text to a console, so what? So I shelved the idea for about a year and instead focused on math/physics. I got to the regional level of physics olympiad and to a national level in math, but could not progress further than that - all otherwise good achievements, but I felt like I was running into some wall I could not describe. Not only was it about an actual problem-solving skill issue, but I also felt that my time for deciding what to pursue was getting short. I wanted actual usefulness, not some abstract in a vacuum type thing. The math started getting hairy, I couldn’t grok it as easily as before, and solving equations did not show any clear path ahead for me.
+
+Once I got introduced to olympiad-style programming, things finally clicked for me. You could solve problems not that different from the ones you did with pen and paper, but also so much more. Right about the time I was doing prep work for a programming olympiad at school using Pascal and python and got to play with graphs - I was hooked. The applicability seemed much more powerful. The beauty of seeing a data structure and an algorithm for it was the moment of no return.
+
+In my final high school year, I once again got into a national-level round of an olympiad, but this time it was for programming. Despite not getting anything remarkable there, I was certain about what I’m going to choose next. At that point, I still had no idea how traversing graphs or linked lists could earn you money, but I figured that I would get to it once I started my major.
+
+During my first year as a CS major, I got familiar with the professional scene in my hometown. Despite the city not being that big, the tech community was pretty active, with plenty of events and opportunities to find a way to enter. I did a few bootcamps before finally landing my first real job, just a few weeks after I turned 18, as an Android dev. At that point, I knew that I no longer had to think of some backup strategy in case I would not be able to get into software (which probably would be something like engineering). I was happy as finally I could put my analytical mind to some good use and start earning a living.
+
+
+## First steps: Android
+
+The first few months on the job were very insightful to me and culminated with me shipping my first few lines of code. My change sadly introduced a bug related to null-pointer dereference and caused a runtime crash. The feature was heavily sought after by the users, so in a span of a few days, it crashed the app more than 10k times. Yeah, off to a great start, I thought. But considering that the company was pretty young at that time and the experience of my teammates was maybe a year more than mine, this was not that terrible. We rolled out a fix, and in the future, the null checks were a bit less of an issue.
+
+At that point, the continual learning aspect of the job dawned on me. Everyone was learning. Things you now find difficult were just as difficult for your teammates a few months ago. and the pace of learning on the job was far greater than you would see in self-study, at least initially. Every couple of days you were introduced to new concepts: SOLID, MPV, MVC, IOC, DI, unit tests, logging, integration, code review, clean code, design patterns, package managers, libraries and frameworks. I used to get images of IOC in my sleep, ruminated on OOP concepts during my commute, and imagined marble diagrams of events in a reactive stream. I was hungry for knowledge, and my peers shared this sentiment. Together, we helped each other discover novel concepts for us and, bit by bit, learned what not to do. At the time, we didn’t have much senior supervision, apart from some occasional sessions with a few guys from another company. Sure, there were some large gaps in things we didn’t know we didn’t know, but when it came to making stuff, we were in a good enough place.
+
+One pretty important lesson I learned at the time was the importance of having a good team. Software is complicated, and it takes time to get familiar with a new project. Being not alone in that pursuit was very reassuring: I might not fully understand what this particular piece of code is doing, but checking git blame I’ll get to someone who probably does, allowing me to ask some questions right at their desk if need be. Similarly, others could ask me about the things I wrote in the very same manner. To this day, I cherish the peer-level kinship I felt towards my coworkers, as we were all in pretty similar conditions, resulting in a very open mindset. (To be clear - the kinship is still there, just not that rose-tinted as it was then).
+
+But as time went on and I learned enough to be productive at my job, I started to feel a bit unsatisfied in ways I did not initially expect. Turns out there are different kinds of code: some code is more essential to the inner workings of the project. In my view at the time (in the context of Android apps being just another client for some API), UI was a second-grade citizen because it concerned itself with aesthetics mostly, and relied on the core business logic being performed somewhere else. I like looking at pretty things, but turns out working on making things beautiful was not that easy, even if you had the designs in Photoshop. I found the disproportionate amount of time spent perfecting shadow gradients and subtle spacing across different screens not very enjoyable: it was not much of a problem-solving thing, and rather “which particular attribute I have to use to achieve this specific effect”. That's when I started to suspect that I don’t like doing UI, and since Android was pretty much about UI, I scrambled to find a way out.
+
+
+### The Good
+
+I liked plenty of things about android dev experience (other than the fact that it got me into software). I could easily show people outside of work what I was working on. I knew through in-app analytics that users interacted with the buttons I implemented or visited the screens I worked on. The lag-free experience target was a very real teacher of respect towards the main thread. Using various APIs showed me how you can perform the integration of multiple separate systems into one usable package. Android had a few platform-specific constraints around activity and fragment lifecycle that made architecture decisions important early on. UI logic is different from algorithmic challenges and is much more about the flow of control than some Big-O efficiency. Since the job was a mixture of Xamarin.Android and native Android, I got to see how modern languages (C# and Kotlin) might approach the same problems using a different syntax, also letting me dip a toe in some functional programming concepts.
+
+
+### The Bad
+
+I concluded that I simply didn’t enjoy the visual aspect of setting up layouts in Android Studio. Furthermore, I did not know anything about the behind-the-scenes of the HTTP APIs - all of it was just magic to me. I could not even use my knowledge to just develop apps for another platform like iOS (yeah, sure, Xamarin promised that, but in reality, you had to learn iOS development with Swift/Objective-C anyway). And besides that, the application logic that we implemented was pretty much a thin wrapper around the API, so I felt like I was coasting on top of real work being done somewhere else. What I learned to do was useful, but not challenging in the way that I liked from algorithmic problems. Oh, and right about that time, I started to feel that Google had a very disproportionate grasp on the things I did, with my job essentially being a huge vendor lock-in. I wanted to get away from UI work, become something more important and do something more *free*.
+
+
+## Trying exciting new things: ML
+
+Right around that time, we got a new coworker in our office, who sat pretty close to me. He had some background in math (as a teacher at uni) and was undergoing a career shift into ML on his own. Occasionally, during the office banter, he mentioned cool ideas like making machines learn from data, and solving problems by applying concepts from calculus and statistics. I heard of the domain a few years prior, while still in school, but disregarded it as something either too niche or too complicated - or both. Yet from our discussions, it seemed that the prerequisites for getting started were not that high: a bit of Python here, some Coursera courses from Andrew Ng, and bam - you can become an ML guy as well.
+
+Being open to trying new things and gravitating to challenging myself with math, I started listening to lectures online. In a few weeks of self-paced study, I found myself pretty interested in this new emerging field. It helped a lot that the coworker had actual projects already and shared his notes on the matter. Turns out it was possible to work in data science, there was a rapidly growing market, and the set of problems you could focus on was pretty wide: from computer vision to natural language processing, from detecting fraud to stock predictions.
+
+This was a pretty strange time for me - each day I spent working on another Android button i wondered what the other world would look like, the one where I was doing some interesting research, crunching numbers and learning about AI-adjacent stuff. It bothered me to continue with the now routine steps of transforming a UI design into a clickable application that displays the data from the server. I wanted change, I wanted to go outside the local minimum I found myself in in search of a global optimum (this was pretty much the words I used in my head, all under the influence of the study material).
+
+And so I took a leap of faith - abandoned my position as an Android dev in favor of becoming a data scientist/ML engineer. This was a first for me, and I was afraid of regretting it. The company I worked in had no meaningful way to integrate data science into its business model of being an outsource dev shop, and the coworker had soon left to start his own thing. I followed him and was among the first few people he took under his mentorship.
+
+What followed was a pretty diverse experience of doing various DS/ML stuff: projects were of different sizes, of different domains, requiring different sets of tools and skills. There was fraud detection, sentiment analysis, image classification, object detection and regression. We used both classical ML tools (scikit learn, various boosting frameworks) and the newfangled deep learning stuff (TensorFlow, PyTorch, Keras, fastAI, various cloud offerings). ML was becoming something that many companies heard of and found internal usecases for.
+
+
+### The Good
+
+I got into ML right about the time it got its renaissance (2019). The publicity around it was pretty optimistic, with the research around detecting and preventing diseases being something that inspired me. One of the highlights of my career in ML was helping the team at the London School of Hygiene and Tropical Medicine speed up their analysis pipeline for various drugs targeting malaria in mosquitoes, which ended up as a peer-reviewed article in PubMed - something I’ll probably remain proud of for the rest of my life. I got to play with language models before the ChatGPT era and witnessed firsthand its progression from a novel NLP architecture to the behemoth of an industry it currently is.
+
+Python, while less reliable than statically typed languages, proved to be a very versatile tool: you can do a lot of stuff just by importing a few packages from PyPI. Having to expose the models to the outside world made it necessary to learn about many backend concepts, as well as touch up on infra in the process: I learned how to work in modern cloud environments as an application developer, even though that was not something I explicitly aimed for at the time.
+
+Also, this was the first time that I routinely had to use math in my professional work: matrices, derivatives, optimization, numerical methods, and transforming problems from business domains into models were pretty cool. I was surprised by the seeming simplicity of the machinery behind a lot of the ideas (from the practitioner standpoint). Sure, at times the math got hairy, but still it felt like the essence of the thing was tangible: even implementing a transformer at some point became not that unsurmountable of a task.
+
+On the soft skill side, the job itself posed a lot of communication challenges - you had to learn how to navigate the business needs and the complexity of the tools you try to use to solve them, emphasizing clear language and management of the domain knowledge. Documenting your own research proved pretty useful as well: being able to identify which specific thing you changed led to a change in metrics was very valuable for pretty much all of the projects, leading me to spend many hours on reproducibility, which I thoroughly enjoyed.
+
+
+### The Bad
+
+But it was not without a price, which I didn’t anticipate before: uncertainty. Data science turned out to be exactly that - *a science*. With the hypotheses and experiments being at the core, you could not be certain that what you did was optimal. Or if what you attempted is even possible with your kind of data or current tech. Sometimes the months you’ve spent on trying stuff out will simply not result in any meaningful change to the target metrics. And that was the reality I had to accept.
+
+At the time, there was a lot of excitement towards the future promises of ML/DS/AI, but the timing was a bit awkward. There were a lot of problems that were not yet actually solved. In many cases, being good at some benchmark metric was simply not good enough for the business needs. Sometimes you could get it to work well enough, but oftentimes that was simply not the case. And once you did all you could muster from the current research, there was pretty much nothing left for you to try (under the resource limitations of an average project, that is). And even if you got good metrics on paper, it didn’t necessarily mean that was a representative measurement (data leaks, distribution shift, sample size being too small, etc.). There was no real underlying neat story of “we solved X” without a lot of hidden assumptions, biases and inaccuracies inherent in the research as a whole.
+
+What also bothered me was a certain lack of engineering mindset among the practitioners. Ad hoc scripts everywhere, single-letter naming for variables is the norm, no type hints, no meaningful documentation, testing is scarce at best and misleading/useless at worst. I know that the selection process for ML people favored those with a good math skillset, and math, in turn, is especially terse. But I simply got fed up with it. I wanted to be an engineer with good practices and not some script-kiddie throwing stuff against the wall and keeping what sticks. I tried introducing better conventions, but it didn’t matter as long as the metrics went up and the problem was solved. I guess this worldview deserves a right to live, but I could not bear all of the cruft I saw - it was like hearing nails on the chalkboard.
+
+And once again, I felt that ML by itself is not really viable. You needed a project around it, the algos are hungry for data and compute: you could not really conjure stuff into existence in a vacuum. And even if you have those, the experimentation is pretty slow, feedback loops are long, which led to my frustration numerous times. If you wanted to get up to speed with the cutting-edge research - get ready to spend some money on the compute, cause the days when you could do useful stuff on your laptop were ending pretty soon.
+
+I wanted simpler things, something I could learn meaningfully on my own and not be blindsided by a new research paper that spent a few million on training compute and an exotic private dataset. I wanted a certain kind of sovereignty in terms of technology, get back into engineering and away from doing research.
+
+
+## Getting wider in scope: Infra
+
+Since not many regular engineers knew how to work with ML artifacts, it was pretty common for you to handle the containerization and deployment of your work. In the beginning, it was just something you had to do in order to finish the handoff, and it felt mostly like a chore. Since in my direct circle of ML coworkers I had the most classical SWE background, it was natural for me to take on the mantle of someone who also knows how to handle the non-research part of the job. I started by giving a few short demos on how to use Docker to have a reproducible research environment, then dived into orchestration with compose (nothing complicated, but sometimes you had to work with a db, and I’d like to avoid depending on my system package manager for that).
+
+One project in particular required me to set up an ETL pipeline, for which I used Apache Airflow on top of Kubernetes. In that particular case, that was most certainly a case of cargo-culting, but the thing ended up working ok. I was impressed with the seeming flexibility one got with k8s, and it simmered in the back of my mind for some time.
+
+Right at the end of my ML role, I wanted to take a break: some of it was due to just burnout of trying to keep up with the advances in the field, some - due to wanting to explore beyond just computers (I took up photography, both digital and film). Another major reason - I started to feel like many aspects of working in ML just didn’t align well with my engineering-focused mindset.
+
+The break was for 6 months, and at some point, I got pretty bored, so I decided to play a bit with tech, remembered my fascination with k8s, and just went for a CKA prep course. The more I learned, the more right it felt to use this *thing* to tackle the complexity of deployment. The concepts aligned neatly, and the patterns of application structure seemed to map nicely onto the k8s ideas. It felt like the tech stack could be conceptualized as a set of building blocks that you only had to stick together in the right manner, and it would work almost by magic. YAML became the most powerful language I knew at the time.
+
+While I didn’t want to get into pure infra yet, having the ability to work with this almighty tool was something I needed. Right at the time, there emerged another new field: MLOps - a mix of DevOps and ML, bridging a gap between ML and infra. There were very few people on the market who had that particular skillset, and I was pretty quick to land a job in an ML infra startup, where I did exactly that: helped ML engineers utilize the modern infra stack without the need for them to learn much about the intricacies of deployment and focus on research instead.
+
+
+### The Good
+
+The first MLOps job I got was engaging: there was an in-house MLOps platform which needed to be developed and supported, internal ML team relied on guys like me to help troubleshoot some issues and used us for consultations on tech selection. We curated a set of ML tools that we knew were a good fit for our platform, since we provided example showcase applications as example recipes.
+
+It was a deep-in-the-weeds kind of work: during an average workday, you juggled multiple tools and concepts, provided tech support for researchers, participated in initial triage of platform issues and communicated product info to the stakeholders. Feedback loops were short - in a few minutes you could go from initial alert to acknowledgment of the issue on your side to resolution.
+
+The platform itself worked on top of k8s (and was a more high-level wrapper around it with ML-specific optimizations in usability), so I got intimately familiar with managing k8s in the process, heavily expanding on my previous mostly theoretical knowledge. Seeing the breadth of possibilities our hybrid cloud/on-prem architecture provided was genuinely cool, and witnessing a DGX as one of your nodes somewhat blew my mind.
+
+I was also around the first llama + lora wave: amazing how quickly a field can pivot from small neural networks for image processing towards serving the behemoths that are modern LLMs, as the shift seemingly happened overnight. It was cool to read about such models being served on A100s and then in a week or two get to do that yourself - with modern infra it was easy to scale. We also did some wacky stuff with commodity hardware (like running llms on rented out consumer compute platforms), broadening my perspective of what is possible.
+
+Second MLOps job I got was pretty similar as well, but with even more focus on infra (included bootstrapping a cloud env with terraform for a greenfield project, then managing model serving and the application layer deployments as well), which showed me more depths of the infra story, along with the organizational effects it has (i.e. the importance of it being reliable as a bedrock on which the other teams build their stuff). It was cool to be one of the grown-ups in the team, to have a very meaningful say in what technologies the team will use with tangible effects on the engineering.
+
+At that point, I reached a level of competence at which my impostor syndrome started to subside: I proved to myself that I can work in complex environments, see the development process holistically, and that I’m able to learn to do many things given enough patience and effort - I just need to apply myself.
+
+
+### The Bad
+
+It's at the second job mostly that I started to realize the depth of modern infra, and the more it dawned on me, the more it felt insurmountable. Everywhere I looked, there were fractal layers of complexity, for each line of yaml you were toying with great power, ramifications of which were not readily obvious. For all of the promises of Kubernetes to hide the complexity, the abstraction it provides is pretty leaky. You still have to learn a lot of vendor-specific knowledge; the differences between Kubernetes on, say, Azure and on-prem are subtle but important. Depending on Kubernetes impacts everyone on the team: complicating the deployment and introspection for the application developers, requiring you to bring your own observability or use the one from the cloud provider (defeating the vendor lock-in arguments). The abstraction layers over cloud infra like Terraform bring their own idiosyncracies, requiring you to learn a whole new language and a set of rules for safely working with it, making you trade the fear of complexity for a fear of the thing buckling under itself upon a tiny config change.
+
+Oh, and infra is far from being solved: machines crash, nodes disconnect, breaking updates happen, deployments stall, and pods enter crash loops. Since regular devs might not have the luxury of worrying about that and simply need to get stuff done, you end up being the nanny for the lovercaftian pile of complexity, always ready to firefight at a moment's notice. And you don’t really get a choice: once a downtime happens at an infra level - you have to step in and fix things ASAP because the devs will lack experience and credentials to do anything to unfuck the mess. I attempted to somewhat hedge against that pressure by proliferating the knowledge about the system internals, but you can’t really expect someone to learn k8s if they don’t really need to use it directly. Having a team of infra people helps to shed the load, but you know that the day will come when you’ll be the one scrambling to solve some obscure issue with networking, which prevents an important release from working.
+
+Its a busy line of work, but not the kind of busy I perform well under. In the process, the infra work gained a tremendous amount of respect from me: it takes a specific mindset to operate well in such an environment, and I feel like I don’t really have what it takes to do that. Sure, it might be good for your ego to get to the point where you have all of the keys to the kingdom, but the implications and responsibility it brings with it weigh on me, since I specifically don’t want to be a single point of failure.
+
+In a sense, I ended up feeling like I put myself in a cage of my own creation, and the bars were made of the responsibility and being on the critical path of failure. And I knew that it was a matter of when and not if an infra failure would occur. While being important, I still didn’t get to the realm of solving actual, non-self-imposed problems that people want to have solved; I just sat there in the background, trying to shield the other devs from the messiness.
+
+I started asking myself: “I like engineering, but do I *really* like *overengineering*?” I could not find a satisfying answer, and with each passing day, I felt that either I needed to change myself and accept this new status quo, or I needed to change what I do.
+
+
+## Recapitulation: Backend
+
+While still employed, I decided to look inwards, analyze my previous experience, and search for a better direction. Infrastructure seems overly complicated and pretty far from the core application work, and was essentially a constant firefighting mode, which I did not enjoy. ML was way too experimental in nature, with long feedback loops, inherent uncertainty, and a maddening pace of innovation with which I could not keep up (and, frankly, did not want to keep up either). I did not want to turn back into UI work as well, as I did not find that interesting, so Android was mostly out of the question as well.
+
+In doing that it dawned on me that many times in my career I chose to switch *from* something without a clear understanding *where i’m switching to*: UI drove me from Android, I disliked the experimental nature of ML and did not want to tackle the overcomplication of infra - but the choice of a replacement was less of reflection of what I wanted and more about what I avoided from my previous position.
+
+“What do I want?” - the thought that simmered in the back of my mind for a few weeks, as I slowly unraveled the answer and its implications.
+
+I like engineering: problem solving, careful analysis of options, use of the tools I have to solve the problems at hand - all while balancing the tradeoffs. I also like some semblance of rigor and not just a willy-nilly “hope it works” ad-hoc mindset. I see enormous value in simplicity and clarity - both for code and communication around it. I want to be certain in the outcomes of my work (in a narrow way of “the code is doing what it is expected to do”). I want to be able to learn foundational principles and use them as a basis of my work instead of blindly relying on magic boxes or impenetrable abstractions, obscuring what is actually going on. I like short feedback cycles. I liked deterministic or, at the very least, predictable systems, complex enough to be powerful and simple enough to still allow reasoning about them. I want to not be limited to a single domain. Oh, and finally - I’d like to have nothing to do with UI to the degree it is possible.
+
+The choice really boiled down to writing application logic (except for the UI), and practically was one of: systems programming (where the work is more fundamental, but further from end-users most of the time) or backend, although the line between the two might be pretty arbitrary these days.
+
+It became pretty obvious that what I wanted was very much related to backend application engineering - shocker, I know. I’ve spent years circling it, seeing it from the outside but not noticing the forest behind the trees, over- or undershooting the optimum in hopes that this time it would be better.
+
+But I did not want to rush with my decision, not yet. Backend itself is a pretty wide domain, with marked differences in culture, and before committing to yet another switch, I had to know where I planned to land. I’ve spent many hours researching various languages (at that point, I’ve seen a lot of them and knew what features I did and did not like), the business domains those tended to cover, the communities surrounding them, adoption (it would be unwise to seriously look for a Haskell job, for example), and just general vibes.
+
+I’ve seen my fair share of Python, so it was not an option for me, along with anything that did not have static types as the main mode of operation (so JS/TS, php and Ruby were out of the question as well). I also did not want to have to traverse overcomplicated syntax with lots of hidden behavior, leaving Kotlin (with its abundance of syntactic sugar) and C++ (admittedly - a skill issue on my part) on the sidelines. Additionally, I put off Rust specifically just because I was not in the mood for learning about the borrow checker - I had written a few hundred lines of Rust before shelving it as a curiosity that may deserve another deep dive later. This landed me in the C#/Java/Go gauntlet, and since I had plenty of experience with the former two during my Android years, I gave Go a go (pun intended).
+
+And it sure did deliver. I knew about Go being used in various infra stuff (Docker, k8s), but only once I got to play with it a bit did I understand the appeal - it shows restraint. The syntax is straightforward, attempts to hide as little from you as possible, and rewards simplicity. It is not fancy, but it asserts - and proves - that you can do a lot with little. It looks and feels like a tool that somebody with many years of experience in very complicated environments would come up with to boil things down to essentials to simplify their work - and yet still be able to tackle difficult problems when needed (which very much represents the history behind Go). That resonated with me deeply, probably more than I actually expected when looking into the language for the first time.
+
+Another great thing about Go is the abundance of documentation and online resources, complemented by the fact that you can essentially drop into any Go codebase and know what is going on, making it very easy to learn-by-example (I find myself reading the sources of my dependencies much more often than I did with Python; it's just that natural). The dev culture around it also favors simplicity, avoidance of unnecessary dependencies, and pragmatic approaches, which, to me, is a pretty healthy sign (looking at you, React). As it turns out, there is a longstanding community of Go devs in Ukraine, which I was able to easily integrate into, giving me a nice space to chat about the language (and more) with more experienced engineers.
+
+These factors combined (and maybe a dash of novelty) made me select Go as my next tool of choice. And by that point, I felt like I knew what the direction going forward looked like for me. Once I had made that decision, the only things remaining were a gentle transition from my current work and the following switch into my next role. The offboarding was somewhat simple - just had to train my replacement for a month or two and submit my notice. The other part I did not want to rush, though.
+
+A career shift seemed like a good chance to take a long-deserved break: I didn’t really have an opportunity to take a breather since the start of the full-scale invasion in 2022 up until that point, so I decided to capitalize on the opportunity. I wanted to take some time off to unwind, catch up on some media I put off for later, and generally introspect for a bit. I had plenty of savings - enough to give me a runway of more than a year if needed, so I was in no rush. By chance, an opportunity to spend a few weeks abroad presented itself right at the beginning of my sabbatical, giving me a proper context shift and a major reset from the mundane by means of exposing me to the beauty of Provence.
+
+Once back home, I took up piano lessons, and while I didn’t get to a level I would be confident in showing to anyone, the music itself fascinated me. It led me down a rabbit hole of studying music theory, learning how to create music with DAWs, and even looking into modular synthesis - all things I never thought would be accessible to my non-artsy beep-boop brain and reserved only to those with innate talent. This challenged my view of myself as “just a tech guy”, undermining my (admittedly very reductionist) idea that you ought to belong to a category or be described by a label and that you have little power in changing your nature through nurture. Were those specific restrictions mostly in my head? Was I missing out on a whole world of things one can do that I deemed to be inaccessible to me just because I didn’t view myself as even worthy of a try? I concluded that yes, it is possible to do a lot of things you might not have dared in the past - the decisive part is bravery and effort.
+
+In between the exploration of music as an artform and some carefree media consumption, I started working on building up a good foundation for a backend engineer. Probably for the first time in my career, I went through the whole programming language specification, which turned out to be a pretty simple endeavour, making me appreciate Go even more. Doing tiny, very focused explorations of certain concepts (like specifics of working with channels and goroutine for example), which I ended up shamelessly calling “etudes”, proved to be a useful way of study for me.
+
+Feeling a bit empowered with Go docs, I leveled up my game and went for *The Texts* - various RFCs that sit at the foundation of countless protocols and describe the exact specification of how many very important things work under the hood. While working with Android I didn’t get to the point of being confident in my skills to tackle those, and the later occupations were much more reliant on either papers (of various level of accessibility) or a bunch of know-how scattered throughout many sources (in the case of infra), so finally being able to just read and understand how things actually work was very rewarding for me, resolving many of my gestalts in the process.
+
+Once again, I got a confirmation that I can learn things given enough time and effort, including the lower levels as well, and the feeling was liberating.
+
+In the process, I refined my notetaking (a habit I formed a few years ago) in a way that best suited my brain: notes-as-you-go, often mirroring something from the spec but never a copy-paste. Writing turned out to be pretty transformative for knowledge consolidation - more than I expected. In fact, this very essay is a direct result of my wanting to better understand how I got here, and it led to some non-trivial insights in the process.
+
+A somewhat unexpected payoff of this focused way of learning was the realization that many complex things can actually be understood even without some gigabrain. As a corollary, many abstractions do not hide something arcane but rather simplify some less-important details. This also applies to non-strictly-technical things: sometimes a mysterious, vague concept like DDD might not be that complicated in its core - just a set of practices one might choose to adopt as a starting point rather than an almost religious ritual you have to follow in its entirety.
+
+As many blindspots in my view of the realities of software slowly started to dissolve, I gained a renewed appreciation of the amount of effort it actually took to get us to where we are now. I saw many human-level aspects of it during my employment, mostly, but the technological aspects were murky for most of my career. Of course, I don’t pretend to know even a meaningful fraction of all things software, but the things I’m aware of now make me respect all of the billions of hours spent by millions of people over decades to solve so many practical problems (both fundamental and not) in order to enable and empower so much of human experience in recent years. The best way to describe this feeling is probably *kinship* with a dash of empathy.
+
+
+## Conclusion
+
+I like where I ended up so far: the path might’ve been a bit chaotic before, perhaps without a clear sense of direction, but with enough distance - I still ended up learning a lot along the way. In the past, I’ve spent a lot of time going from things I disliked, treating new opportunities as better by default - mainly because I did truly not know what I wanted at the time. In wandering, I developed a kind of taste, finding particular flavors of work more pleasurable than others. Now my preferences are specific enough for me to know where I want to go.
 
 Turns out you can just do stuff.
+
