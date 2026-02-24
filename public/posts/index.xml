@@ -6,8 +6,15 @@
     <description>Recent content in Posts on xomiachuna.tech</description>
     <generator>Hugo</generator>
     <language>en-us</language>
-    <lastBuildDate>Sat, 11 Oct 2025 15:25:07 +0300</lastBuildDate>
+    <lastBuildDate>Fri, 20 Feb 2026 20:14:50 +0100</lastBuildDate>
     <atom:link href="https://xomiachuna.tech/posts/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>My Way (So Far)</title>
+      <link>https://xomiachuna.tech/posts/my-way/</link>
+      <pubDate>Fri, 20 Feb 2026 20:14:50 +0100</pubDate>
+      <guid>https://xomiachuna.tech/posts/my-way/</guid>
+      <description>&lt;h1 id=&#34;beginning&#34;&gt;Beginning&lt;/h1&gt;&#xA;&lt;p&gt;Since childhood I was captivated with sciences. The interest was&#xA;fueled by a trove of children&amp;rsquo;s encyclopedia my parents got for me, and for a few&#xA;years the primary kind of present I got was books full of illustrations about space,&#xA;animals, technology, human body and adjacent topics. In school I often was at the&#xA;top of my class at math, and later at other sciences. Physics specifically showed to me&#xA;that you can apply mathematical thinking in useful ways to solve practical problems.&lt;/p&gt;</description>
+    </item>
     <item>
       <title>Thoughts on pair programming with llms</title>
       <link>https://xomiachuna.tech/posts/claude-pair-programming/</link>
