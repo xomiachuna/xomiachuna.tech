@@ -138,6 +138,12 @@ time {
   font-style: italic;
 }
 
+/*Simplify TOC*/
 #TableOfContents ul, ol {
   list-style-type: none;
+}
+
+/*Hide empty TOC*/
+section.toc:has(nav:empty) {
+  display: none;
 }

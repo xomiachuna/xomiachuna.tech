@@ -5,9 +5,9 @@
         {{ $dateHuman := .Date | time.Format ":date_long" }}
         <time datetime="{{ $dateMachine }}">{{ $dateHuman }}</time> | <em>Word Count: ~{{ .FuzzyWordCount }}</em> | <em>Time to read: ~{{ .ReadingTime }}m</em>
     </hgroup>
-    <section>
+    <section class="toc">
         <h4>Table Of Contents</h4>
-    {{ .TableOfContents }}
+        {{ .TableOfContents }}
     </section>
   {{ .Content }}
 {{ end }}
