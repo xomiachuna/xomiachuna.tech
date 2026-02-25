@@ -9,6 +9,10 @@ disableKinds:
 
 enableEmoji: true
 
+markup:
+  tableOfContents:
+    ordered: false
+
 minify:
   disableCSS: true
   disableHTML: true

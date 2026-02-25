@@ -137,3 +137,7 @@ p {
 time {
   font-style: italic;
 }
+
+#TableOfContents ul, ol {
+  list-style-type: none;
+}
