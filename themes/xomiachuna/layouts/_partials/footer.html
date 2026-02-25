@@ -1,6 +1,15 @@
+<hr />
+<p>
 <a href="{{ site.BaseURL }}">{{ site.Title }}</a> by <a href="https://xomiachuna.tech">Andrii Khomiak</a> is marked <a
     href="https://creativecommons.org/publicdomain/zero/1.0/">CC0 1.0</a><img
     src="https://mirrors.creativecommons.org/presskit/icons/cc.svg" alt=""
     style="max-width: 1em;max-height:1em;margin-left: .2em; display: inline;"><img
     src="https://mirrors.creativecommons.org/presskit/icons/zero.svg" alt=""
     style="max-width: 1em;max-height:1em;margin-left: .2em; display: inline;">
+</p>
+{{ with .OutputFormats.Get "rss" }}
+<p>
+Subscribe via {{ printf `<a type=%q href=%q title=%q` .MediaType.Type .Permalink site.Title | safeHTML }}>RSS</a>
+</p>
+{{ end }}
+
