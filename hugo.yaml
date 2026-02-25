@@ -13,6 +13,8 @@ markup:
   tableOfContents:
     ordered: false
 
+summaryLength: 0
+
 minify:
   disableCSS: true
   disableHTML: true
