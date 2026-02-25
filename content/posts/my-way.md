@@ -3,6 +3,14 @@ date: '2026-02-20T20:14:50+01:00'
 draft: false
 title: 'My Way (So Far)'
 ---
+
+A recap of my career so far and the lessons I learned along the way.
+The path might’ve been a bit chaotic before, perhaps without a clear sense of direction, but with enough distance - I still ended up learning a lot along the way. In the past, I’ve spent a lot of time going from things I disliked, treating new opportunities as better by default - mainly because I did truly not know what I wanted at the time. In wandering, I developed a kind of taste, finding particular flavors of work more pleasurable than others. Now my preferences are specific enough for me to know where I want to go.
+
+Turns out you can just do stuff.
+
+<!--more-->
+
 ## Beginning
 
 Since childhood, I was captivated with sciences. The interest was fueled by a trove of children’s encyclopedias my parents got for me, and for a few years, the primary kind of present I got was books full of illustrations about space, animals, technology, the human body, and adjacent topics. In school, I was often at the top of my class in math, and later in other sciences. Physics specifically showed me that you can apply mathematical thinking in useful ways to solve practical problems.

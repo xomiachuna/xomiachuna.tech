@@ -4,6 +4,11 @@ draft: false
 title: Thoughts on pair programming with llms
 ---
 
+I played a bit with Claude Code and found that pair programming and TDD
+makes it useful
+
+<!--more-->
+
 ## Disclamer: my biases with regards to llms
 
 Although I did work quite a bit with llms (did my masters thesis on GPT-2 for Ukrainian in 2021-2022, 

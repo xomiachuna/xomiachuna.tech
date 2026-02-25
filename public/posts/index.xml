@@ -13,14 +13,14 @@
       <link>https://xomiachuna.tech/posts/my-way/</link>
       <pubDate>Fri, 20 Feb 2026 20:14:50 +0100</pubDate>
       <guid>https://xomiachuna.tech/posts/my-way/</guid>
-      <description>&lt;h2 id=&#34;beginning&#34;&gt;Beginning&lt;/h2&gt;&#xA;&lt;p&gt;Since childhood, I was captivated with sciences. The interest was fueled by a trove of children’s encyclopedias my parents got for me, and for a few years, the primary kind of present I got was books full of illustrations about space, animals, technology, the human body, and adjacent topics. In school, I was often at the top of my class in math, and later in other sciences. Physics specifically showed me that you can apply mathematical thinking in useful ways to solve practical problems.&lt;/p&gt;</description>
+      <description>&lt;p&gt;A recap of my career so far and the lessons I learned along the way.&#xA;The path might’ve been a bit chaotic before, perhaps without a clear sense of direction, but with enough distance - I still ended up learning a lot along the way. In the past, I’ve spent a lot of time going from things I disliked, treating new opportunities as better by default - mainly because I did truly not know what I wanted at the time. In wandering, I developed a kind of taste, finding particular flavors of work more pleasurable than others. Now my preferences are specific enough for me to know where I want to go.&lt;/p&gt;&#xA;&lt;p&gt;Turns out you can just do stuff.&lt;/p&gt;</description>
     </item>
     <item>
       <title>Thoughts on pair programming with llms</title>
       <link>https://xomiachuna.tech/posts/claude-pair-programming/</link>
       <pubDate>Sat, 11 Oct 2025 15:25:07 +0300</pubDate>
       <guid>https://xomiachuna.tech/posts/claude-pair-programming/</guid>
-      <description>&lt;h2 id=&#34;disclamer-my-biases-with-regards-to-llms&#34;&gt;Disclamer: my biases with regards to llms&lt;/h2&gt;&#xA;&lt;p&gt;Although I did work quite a bit with llms (did my masters thesis on GPT-2 for Ukrainian in 2021-2022,&#xA;deployed and used various open models when working as ML/MLOps engineer) and saw first-hand&#xA;the progression from random gibberish generators to the current state of llms - I remain rather skeptical&#xA;of the idea that current iteration of language models is something that will entirely replace a significant amount&#xA;of real work done by humans in text-adjacent fields - and code is no exception.&lt;/p&gt;</description>
+      <description>&lt;p&gt;I played a bit with Claude Code and found that pair programming and TDD&#xA;makes it useful&lt;/p&gt;</description>
     </item>
     <item>
       <title>Hello, World! 👋</title>
