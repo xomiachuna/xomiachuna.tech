@@ -9,4 +9,4 @@ Use `make dev` for local `hugo` dev server. Build with `make build`
 2. Commit changes (including `public/`) - the CI will deploy it.
 
 # Discalimer
-This is a personal project, IGAF what you do with it, just dont't bother me.
+This is a personal project, IDGAF what you do with it, just dont't bother me.
