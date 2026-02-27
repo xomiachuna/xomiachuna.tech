@@ -139,7 +139,7 @@ time {
 }
 
 /*Simplify TOC*/
-#TableOfContents ul, ol {
+#TableOfContents ul, #TableOfContents ol {
   list-style-type: none;
 }
 
