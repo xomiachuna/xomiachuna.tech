@@ -2,6 +2,8 @@
 date: '2026-02-20T20:14:50+01:00'
 draft: false
 title: 'My Way (So Far)'
+images:
+- trail.jpg
 ---
 
 A recap of my career so far and the lessons I've learned.
@@ -11,6 +13,9 @@ The path might’ve been a bit chaotic before, perhaps without a clear sense of 
 Turns out you can just do stuff.
 
 <!--more-->
+
+![Hiking trail sign on green hill](./trail.jpg "Hiking trail sign on green hill, Photo by Horia Varlan")
+> [_"Hiking trail sign on green hill"_](https://www.flickr.com/photos/10361931@N06/4900705092) by [Horia Varlan](https://www.flickr.com/photos/10361931@N06) is licensed under [CC BY 2.0](https://creativecommons.org/licenses/by/2.0/?ref=openverse)
 
 ## Beginning
 
